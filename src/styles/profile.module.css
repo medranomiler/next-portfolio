@@ -1,0 +1,72 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomLeft{
+  margin: 20px;
+  padding: 40px;
+  background-color: #111;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  height: 363px;
+  color: white;
+}
+
+
+.profileCard{
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+  background-color: #111;
+  color: white;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  max-height: 200px;
+  }
+  
+  .profileCard:hover{
+  transform: scale(1.05);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  }
+
+.cardText{
+  margin-left: 40px;
+}
+
+.name{
+  font-size: x-large;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 680px) and (max-width: 1024px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+  }
+
+@media screen and (max-width:680px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+}
