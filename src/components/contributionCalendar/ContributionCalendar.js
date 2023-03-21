@@ -20,7 +20,7 @@ const ContributionCalendar = () => {
     today.getDate()
   ).toISOString();
 
-  const sixMonths = new Date(
+  const threeMonths = new Date(
     today.getFullYear(),
     today.getMonth() - 3,
     today.getDate()
@@ -69,7 +69,7 @@ const ContributionCalendar = () => {
       const latestDate = new Date(contributions[contributions.length - 1].date);
 
       if (earliestDate > latestDate) {
-        setStartDate(sixMonths);
+        setStartDate(threeMonths);
         setEndDate(earliestDate);
       } else {
         setStartDate(lastYear);
@@ -128,7 +128,7 @@ const ContributionCalendar = () => {
           }
         }}
       />
-      <div ref={tooltipRef} className="tooltip"></div>
+        <div ref={tooltipRef} className="tooltip"></div>
     </div>
   );
 };
