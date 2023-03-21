@@ -1,6 +1,7 @@
 import styles from "./languages.module.css";
 import { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { Spinner } from '@chakra-ui/react'
 
 
 
@@ -37,7 +38,7 @@ function LanguagesUsed() {
   }, []);
 
   return loading ? (
-    <p>Loading...</p>
+    <Spinner color='gray.50' />
   ) :(
     <div className={styles.container}>
       <h1 className={styles.h1}>Most Used Programming Languages</h1>

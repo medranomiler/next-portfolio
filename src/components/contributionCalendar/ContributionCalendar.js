@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
+import { Spinner } from '@chakra-ui/react'
 
 
 
@@ -103,7 +104,7 @@ const ContributionCalendar = () => {
   };
 
   return loading ? (
-    <p>Loading...</p>
+    <Spinner color='gray.50' />
   ) : (
     <div>
       <CalendarHeatmap

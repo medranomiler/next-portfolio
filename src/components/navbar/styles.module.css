@@ -19,7 +19,8 @@
 }
 
 .icon {
-  padding: 1px;
+  padding: 4px;
+  fill: white;
 }
 
 @media screen and (max-width:680px){

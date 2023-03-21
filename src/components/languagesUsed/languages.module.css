@@ -4,6 +4,7 @@
 }
 .h1{
   font-weight: bold;
+  margin-bottom: 9px;
 }
 @media screen and (max-width:680px) {
   .container {

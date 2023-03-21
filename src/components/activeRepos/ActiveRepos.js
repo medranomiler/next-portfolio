@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@chakra-ui/react";
 import styles from "./repos.module.css";
+import { Spinner } from '@chakra-ui/react'
 
 
 const ActiveRepos = () => {
   const [repos, setRepos] = useState([]);
-
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -14,12 +15,13 @@ const ActiveRepos = () => {
       const data = await response.json();
       console.log(data);
       setRepos(data);
+      setLoading(false)
     };
     fetchRepos();
   }, []);
 
 
-  return (
+  return loading ? (<Spinner color='gray.50' />):(
     <div className={styles.container}>
       <h1 className={styles.header}>Recent Repositories</h1>
       <div className={styles.eventListContainer}>
