@@ -1,8 +1,7 @@
-import { Button, Menu, MenuList, MenuButton, MenuItem, IconButton, Box } from "@chakra-ui/react";
+import { Menu, MenuList, MenuButton, MenuItem, IconButton, Box } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 import Link from "next/link";
-import Image from "next/image";
-import devstrIcon from "../../../public/devstr-icon.png"
+
 
 const Navbar = () => {
 
@@ -27,7 +26,7 @@ const Navbar = () => {
           </svg></MenuButton>
         <MenuList bg="gray.50" >
           <MenuItem color="black"><Link href="/">Home</Link></MenuItem>
-          <MenuItem color="black"><Link href="/profile">Portfolio</Link></MenuItem>
+          <MenuItem color="black"><Link href="/portfolio">Portfolio</Link></MenuItem>
         </MenuList>
       </Menu>
       <h1 className={styles.title}></h1>

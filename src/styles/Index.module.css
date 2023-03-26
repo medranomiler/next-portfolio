@@ -18,6 +18,11 @@
   flex-direction: column;
 }
 
+.imageDevstr{
+padding-left: 20px;
+
+  }
+
 
 
 @media screen and (max-width:680px) {

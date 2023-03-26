@@ -8,9 +8,10 @@ import Image from "next/image"
 
 
 
-    return(<>
+    return(
+    <>
     <Box bg="transparent" padding={10} borderRadius={20}>
-          <Flex wrap="wrap">
+          <Flex wrap="wrap" justify="center" align="center">
  
         <Image className={styles.image} src={avatar} />
 
