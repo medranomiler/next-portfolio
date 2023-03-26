@@ -8,12 +8,12 @@ const Navbar = () => {
 
   return (
     <div>
-      <Box w='100%' h="14" bgGradient='linear(to-r, cyan.700, purple.500)' className={styles.navbar}>
+      <Box w="100%" h="14" bgGradient="linear(to-r, cyan.700, purple.500)" className={styles.navbar}>
       <Menu>
         <MenuButton
           as={IconButton}
-          aria-label='Options'
-          variant='outline'
+          aria-label="Options"
+          variant="outline"
         ><svg
           className={styles.icon}
           viewBox="0 0 100 80"

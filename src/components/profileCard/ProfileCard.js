@@ -1,4 +1,4 @@
-import { Spinner, Avatar, Box, Flex} from '@chakra-ui/react'
+import { Spinner, Avatar, Box, Flex} from "@chakra-ui/react"
 import { useState, useEffect } from "react";
 import styles from "./profile.module.css"
 import avatar from '../profileCard/avatar.png'

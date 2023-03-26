@@ -1,9 +1,9 @@
-import { Box, Heading, Spinner, Flex} from '@chakra-ui/react'
+import { Box, Heading, Spinner, Flex} from "@chakra-ui/react"
 import Image from "next/image"
 import Link from "next/link"
-import ProfileCard from '@/components/profileCard/ProfileCard';
-import RepoCard from '@/components/RepoCard';
-import useFetchGitHubData from '@/utils/useFetchGitHubData';
+import ProfileCard from "@/components/profileCard/ProfileCard";
+import RepoCard from "@/components/RepoCard";
+import useFetchGitHubData from "@/utils/useFetchGitHubData";
 import devstr from "./devstr.png"
 import devstrName from "./My project-1-9.png"
 
@@ -15,7 +15,7 @@ const [repos, loading] = useFetchGitHubData();
 
     return (
         <>
-            <Box h="100%" bgGradient='linear(to-r, cyan.700, purple.500)'>
+            <Box h="100%" bgGradient="linear(to-r, cyan.700, purple.500)">
                 <Box display="flex" flexDirection="row" alignItems="center" justifyContent="center" h={800} mb={200} flexWrap="wrap">
                     <Box mx={100}>
                         <ProfileCard/>

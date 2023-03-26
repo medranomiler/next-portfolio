@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function useFetchGitHubData() {
   const [repos, setRepos] = useState([]);
@@ -6,7 +6,7 @@ function useFetchGitHubData() {
 
   useEffect(() => {
     async function fetchGitHubData() {
-      const url = 'https://api.github.com/users/medranomiler/repos';
+      const url = "https://api.github.com/users/medranomiler/repos";
       const response = await fetch(url);
       const data = await response.json();
       console.log(data);

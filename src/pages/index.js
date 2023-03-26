@@ -3,7 +3,7 @@ import Link from "next/link";
 import hero from "../pages/devstr.png";
 import styles from "@/styles/Home.module.css";
 import ProfileCard from "@/components/profileCard/ProfileCard";
-import {  VStack ,SimpleGrid, AbsoluteCenter, Box, Card, CardHeader, CardBody, CardFooter, Flex, Icon, Avatar, Heading, IconButton, Button, Text } from '@chakra-ui/react'
+import {  VStack ,SimpleGrid, AbsoluteCenter, Box, Card, CardHeader, CardBody, CardFooter, Flex, Icon, Avatar, Heading, IconButton, Button, Text } from "@chakra-ui/react"
 import { BsThreeDotsVertical } from "@chakra-ui/icons"
 
 
@@ -19,17 +19,17 @@ export default function Home() {
       </Head>
         <Box h={{
           base:"800",
-          sm:"950"}} bgGradient='linear(to-r, cyan.700, purple.500)'>
-          <AbsoluteCenter axis='both'>
+          sm:"950"}} bgGradient="linear(to-r, cyan.700, purple.500)">
+          <AbsoluteCenter axis="both">
             <VStack spacing={{
               base:4,
               md:10}}>
-              <Heading as='h1' size={{
-                base:'4xl',
-                md:'4xl'}}>Let's Build Something</Heading>
-              <Button variant='outline' size={{
-                base:'sm',
-                md:'lg'}}><Link href="/portfolio">Learn More</Link></Button>
+              <Heading as="h1" size={{
+                base:"4xl",
+                md:"4xl"}}>Let's Build Something</Heading>
+              <Button variant="outline" size={{
+                base:"sm",
+                md:"lg"}}><Link href="/portfolio">Learn More</Link></Button>
 </VStack>
 </AbsoluteCenter>
 </Box>
