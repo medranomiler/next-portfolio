@@ -1,0 +1,21 @@
+  
+  .cardText {
+    margin-left: 40px;
+    font-size: xx-large;
+  }
+  
+  .name {
+    font-size: 80px;
+    font-weight: bold;
+  }
+  .image{
+    border-radius: 50%;
+    width: 200px;
+  }
+
+  @media screen and (max-width: 500px){
+    .cardText {
+      margin-left: 0px;
+      font-size: xx-large;
+    }
+  }
