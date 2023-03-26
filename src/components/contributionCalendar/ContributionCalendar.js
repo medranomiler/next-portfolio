@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
 import CalendarHeatmap from "react-calendar-heatmap";
 import "react-calendar-heatmap/dist/styles.css";
@@ -106,7 +106,7 @@ const ContributionCalendar = () => {
   return loading ? (
     <Spinner color='gray.50' />
   ) : (
-    <div>
+    <div className="contributionChart">
       <CalendarHeatmap
         startDate={startDate}
         endDate={endDate}

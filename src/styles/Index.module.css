@@ -1,0 +1,29 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 5rem;
+  padding: 20px;
+}
+
+
+.left, .center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+@media screen and (max-width:680px) {
+  .gridContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+}

@@ -1,12 +1,15 @@
-import { Button, Menu, MenuList, MenuButton, MenuItem, IconButton, HamburgerIcon } from "@chakra-ui/react";
+import { Button, Menu, MenuList, MenuButton, MenuItem, IconButton, Box } from "@chakra-ui/react";
 import styles from "./styles.module.css";
 import Link from "next/link";
+import Image from "next/image";
+import devstrIcon from "../../../public/devstr-icon.png"
 
 const Navbar = () => {
 
 
   return (
-    <div className={styles.navbar}>
+    <div>
+      <Box w='100%' h="14" bgGradient='linear(to-r, cyan.700, purple.500)' className={styles.navbar}>
       <Menu>
         <MenuButton
           as={IconButton}
@@ -24,10 +27,11 @@ const Navbar = () => {
           </svg></MenuButton>
         <MenuList bg="gray.50" >
           <MenuItem color="black"><Link href="/">Home</Link></MenuItem>
-          <MenuItem color="black"><Link href="/contact">Contact</Link></MenuItem>
+          <MenuItem color="black"><Link href="/profile">Portfolio</Link></MenuItem>
         </MenuList>
       </Menu>
-      <h1 className={styles.title} fontSize={"xl"}>Darren Medrano</h1>
+      <h1 className={styles.title}></h1>
+      </Box>
     </div>
   );
 };

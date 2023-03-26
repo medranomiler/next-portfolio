@@ -1,37 +1,26 @@
-import { Spinner, Avatar } from '@chakra-ui/react'
+import { Spinner, Avatar, Box, Flex} from '@chakra-ui/react'
 import { useState, useEffect } from "react";
-import styles from "../../styles/profile.module.css"
+import styles from "./profile.module.css"
+import avatar from '../profileCard/avatar.png'
+import Image from "next/image"
  
  function ProfileCard() {
-    const [loading, setLoading] = useState(true);
-    const [bio, setBio] = useState("");
-    const [username, setUsername] = useState("");
-    const [avatarUrl, setAvatarUrl] = useState("");
-  
-  
-    useEffect(() => {
-      async function fetchGitHubData() {
-        const url = "https://api.github.com/users/medranomiler"
-        const response = await fetch(url);
-        const data = await response.json();
-        setUsername(data.login);
-        setBio(data.bio);
-        setAvatarUrl(data.avatar_url);
-        setLoading(false)
-      }
-  
-      fetchGitHubData();
-  
-    }, [])
 
-    return loading ? (<Spinner color='gray.50' />):
-        (<div class={styles.profileCard}>
-        <Avatar size="2xl" src={avatarUrl} />
+
+
+    return(<>
+    <Box bg="transparent" padding={10} borderRadius={20}>
+          <Flex wrap="wrap">
+ 
+        <Image className={styles.image} src={avatar} />
+
           <div className={styles.cardText}>
-            <h2 className={styles.name}>{username}</h2>
-            <p className={styles.bio}>{bio}</p>
+            <h2 className={styles.name}>Darren Medrano</h2>
+            <p className={styles.bio}>MERN Stack/ Open Source developer</p>
           </div>
-        </div>
+          </Flex>
+        </Box>
+        </>
     )
 }
 
