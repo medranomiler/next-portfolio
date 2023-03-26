@@ -17,7 +17,7 @@ function useFetchGitHubData() {
         data[12],
         data[18],
         data[13],
-        data[16],
+        data[9],
         data[17],
       ]);
       setLoading(false);
