@@ -23,7 +23,7 @@ const Home = () => {
               md:10}}>
               <Heading as="h1" size={{
                 base:"4xl",
-                md:"4xl"}}>Let's Build Something</Heading>
+                md:"4xl"}}>Lets Build Something</Heading>
               <Button variant="outline" size={{
                 base:"sm",
                 md:"lg"}}><Link href="/portfolio">Learn More</Link></Button>
