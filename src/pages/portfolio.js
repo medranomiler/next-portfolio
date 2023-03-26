@@ -9,7 +9,7 @@ import devstrName from "./My project-1-9.png"
 
 
 
-const portfolio = () => {
+const Portfolio = () => {
 const [repos, loading] = useFetchGitHubData();
 
 
@@ -37,4 +37,4 @@ const [repos, loading] = useFetchGitHubData();
     )
 }
 
-export default portfolio;
+export default Portfolio;
