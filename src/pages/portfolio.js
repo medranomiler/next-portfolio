@@ -5,7 +5,7 @@ import ProfileCard from "../components/ProfileCard/ProfileCard.js";
 import RepoCard from "../components/RepoCard.js";
 import useFetchGitHubData from "../utils/useFetchGitHubData.js";
 import devstr from "./devstr.png"
-import devstrName from "./My project-1-9.png"
+import devstrName from "./devstrtext.png"
 import spacedefence from "./spacedefence.png"
 
 
@@ -31,7 +31,10 @@ const [repos, loading] = useFetchGitHubData();
                     </Box>
                     <Heading textAlign="center" size="2xl" marginBottom="20">Collaborations</Heading>
                     <Link href="https://devstr.vercel.app/"><Image src={devstr} />
-                    <Flex><Box w={20}/><Image  src={devstrName}/></Flex></Link>
+                    <Flex><div><Image  style={{
+                          mixBlendMode: "multiply",
+                          filter: "contrast(1)"
+                    }}src={devstrName}/></div></Flex></Link>
                     <Box h={200}></Box>
                     <Link href="https://jate-emporium.herokuapp.com/"><h2 style={{
                         fontSize: "100px",
