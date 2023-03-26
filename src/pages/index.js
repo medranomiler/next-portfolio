@@ -1,10 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import hero from "@/pages/devstr.png";
-import styles from "@/styles/Home.module.css";
-import ProfileCard from "@/components/ProfileCard/ProfileCard";
-import {  VStack ,SimpleGrid, AbsoluteCenter, Box, Card, CardHeader, CardBody, CardFooter, Flex, Icon, Avatar, Heading, IconButton, Button, Text } from "@chakra-ui/react"
-import { BsThreeDotsVertical } from "@chakra-ui/icons"
+import {  VStack, AbsoluteCenter, Box, Heading, Button } from "@chakra-ui/react"
+
 
 
 export default function Home() {
