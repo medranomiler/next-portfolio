@@ -1,5 +1,5 @@
 import { Menu, MenuList, MenuButton, MenuItem, IconButton, Box } from "@chakra-ui/react";
-import styles from "./styles.module.css";
+import styles from "@/styles.module.css";
 import Link from "next/link";
 
 
