@@ -1,9 +1,9 @@
 import { Box, Heading, Spinner, Flex} from "@chakra-ui/react"
 import Image from "next/image"
 import Link from "next/link"
-import ProfileCard from "../components/ProfileCard/ProfileCard";
-import RepoCard from "../components/RepoCard";
-import useFetchGitHubData from "../utils/useFetchGitHubData";
+import ProfileCard from "../components/ProfileCard/ProfileCard.js";
+import RepoCard from "../components/RepoCard.js";
+import useFetchGitHubData from "../utils/useFetchGitHubData.js";
 import devstr from "./devstr.png"
 import devstrName from "./My project-1-9.png"
 
