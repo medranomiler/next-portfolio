@@ -4,7 +4,6 @@ import Link from "next/link"
 import ProfileCard from '@/components/profileCard/ProfileCard';
 import RepoCard from '@/components/RepoCard';
 import useFetchGitHubData from '@/utils/useFetchGitHubData';
-import styles from "../styles/index.module.css"
 import devstr from "./devstr.png"
 import devstrName from "./My project-1-9.png"
 
@@ -26,7 +25,7 @@ const [repos, loading] = useFetchGitHubData();
                 <Heading textAlign="center" size="2xl" marginBottom="20">Personal Projects</Heading>
             <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
                 <Box display="flex" alignItems="center" justifyContent="center" flexWrap="wrap" marginBottom="20">
-                {loading? (<Spinner/>):(repos.map((repo) => <RepoCard repo={repo} />
+                {loading? (<Spinner/>):(repos.map((repo) => <RepoCard key={repo} repo={repo} />
                   ))}
                     </Box>
                     <Heading textAlign="center" size="2xl" marginBottom="20">Collaborations</Heading>
