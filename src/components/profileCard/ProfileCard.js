@@ -1,6 +1,6 @@
 import { Box, Flex} from "@chakra-ui/react"
 import styles from "./profile.module.css"
-import avatar from '@/avatar.png'
+import avatar from './avatar.png'
 import Image from "next/image"
  
  const ProfileCard = () => {
