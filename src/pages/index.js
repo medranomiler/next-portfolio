@@ -4,7 +4,7 @@ import {  VStack, AbsoluteCenter, Box, Heading, Button } from "@chakra-ui/react"
 
 
 
-export default function Home() {
+const Home = () => {
 
   return (
     <>
@@ -33,3 +33,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home;

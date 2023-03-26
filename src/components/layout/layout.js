@@ -1,7 +1,7 @@
 import Navbar from "../Navbar/Navbar.js"
 import Head from "next/head";
 
-export default function Layout({ children }) {
+const Layout = ({ children }) =>{
   return (
     <>
           <Head>
@@ -15,3 +15,5 @@ export default function Layout({ children }) {
     </>
   );
 }
+
+export default Layout;

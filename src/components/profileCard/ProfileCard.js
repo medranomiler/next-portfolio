@@ -3,7 +3,7 @@ import styles from "./profile.module.css"
 import avatar from '@/avatar.png'
 import Image from "next/image"
  
- function ProfileCard() {
+ const ProfileCard = () => {
 
 
 
@@ -24,4 +24,4 @@ import Image from "next/image"
     )
 }
 
-export default ProfileCard
+export default ProfileCard;
