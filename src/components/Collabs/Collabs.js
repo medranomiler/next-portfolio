@@ -9,12 +9,15 @@ const Collabs = () => {
 
     return (
         <>
-            <Heading textAlign="center" size="2xl" marginBottom="20">Collaborations</Heading>
+            <Heading textAlign="center" size="2xl" marginBottom="20" bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'>Collaborations</Heading>
             <Link href="https://devstr.vercel.app/"><Image src={devstr} />
-                <Flex><div><Image style={{
+                {/* <Flex>
+                    <div><Image style={{
                     mixBlendMode: "multiply",
                     filter: "contrast(1)"
-                }} src={devstrName} /></div></Flex></Link>
+                }} src={devstrName} /></div>
+                </Flex> */}
+                </Link>
             <Box h={200}></Box>
             <Link href="https://jate-emporium.herokuapp.com/"><h2 style={{
                 fontSize: "100px",

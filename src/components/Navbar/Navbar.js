@@ -5,15 +5,17 @@ import Link from "next/link";
 
 const Navbar = () => {
 
-
+  const boxShadow = "2px 2px 10px red"
   return (
     <div>
-      <Box w="100%" h="14" bgGradient="linear(to-r, cyan.700, purple.500)" className={styles.navbar}>
+      <Box w="100%" h="14" bgGradient="linear(to-r, black, black)" className={styles.navbar}>
       <Menu>
         <MenuButton
           as={IconButton}
           aria-label="Options"
           variant="outline"
+          style={{border: "red",
+  backgroundColor: "transparent", boxShadow, color:"white"}}
         ><svg
           className={styles.icon}
           viewBox="0 0 100 80"
@@ -24,9 +26,12 @@ const Navbar = () => {
             <rect y="30" width="100" height="20" rx="10"></rect>
             <rect y="60" width="100" height="20" rx="10"></rect>
           </svg></MenuButton>
-        <MenuList bg="gray.50" >
-          <MenuItem color="black"><Link href="/">Home</Link></MenuItem>
-          <MenuItem color="black"><Link href="/portfolio">Portfolio</Link></MenuItem>
+        <MenuList style={{border: "red",
+  backgroundColor: "transparent", boxShadow, color:"white"}} >
+          <MenuItem style={{border: "red",
+  backgroundColor: "transparent", color:"white"}}><Link href="/">Home</Link></MenuItem>
+          <MenuItem style={{border: "red",
+  backgroundColor: "transparent", color:"white"}}><Link href="/portfolio">Portfolio</Link></MenuItem>
         </MenuList>
       </Menu>
       <h1 className={styles.title}></h1>

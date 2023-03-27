@@ -13,7 +13,7 @@ const RepoCard = ({ repo }) =>{
         base:"xs",
         md:"md"}} minH="xs" boxShadow="dark-lg" bg="white">
         <CardHeader>
-          <Heading textAlign="center" size="2xl">
+          <Heading bgGradient="linear(to-r, red.900, black)" bgClip='text' textAlign="center" size="2xl" py={2}>
             {repo.name}
           </Heading>
         </CardHeader>
