@@ -7,6 +7,7 @@ import useFetchGitHubData from "../utils/useFetchGitHubData.js";
 import devstr from "./devstr.png"
 import devstrName from "./devstrtext.png"
 import spacedefence from "./spacedefence.png"
+import Links from "../components/Links/Links.js"
 
 
 
@@ -21,6 +22,9 @@ const [repos, loading] = useFetchGitHubData();
                     <Box mx={100}>
                         <ProfileCard/>
                     </Box>            
+            </Box>
+            <Box display="flex" flexDirection="row" alignItems="center" justifyContent="center" h={800} mb={200} flexWrap="wrap">
+            <Links/>
             </Box>
                 <Heading textAlign="center" size="4xl" marginBottom="20">Portfolio</Heading>
                 <Heading textAlign="center" size="2xl" marginBottom="20">Personal Projects</Heading>
