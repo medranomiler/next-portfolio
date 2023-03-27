@@ -2,8 +2,23 @@ import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Box, Flex } from
 import {FaReact, FaBootstrap, FaNode, FaLink} from "react-icons/fa"
 import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiGraphql, SiApollographql, SiChakraui, SiJavascript, SiNextdotjs, SiGithub} from "react-icons/si"
 import Link from "next/link";
+import { useEffect, useState } from "react"
 
 const RepoCard = ({ repo }) =>{
+  const [borderColor, setBorderColor] = useState("#000"); // Set initial color
+  const colors = ["blue", "purple", "red"]; // Define array of colors
+  
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const randomColor = colors[Math.floor(Math.random() * colors.length)]; // Choose random color from array
+      setBorderColor(randomColor);
+    }, 2000);
+    return () => clearInterval(intervalId);
+  }, []);
+  
+  const boxShadow = `2px 2px 10px ${borderColor}`;
+  const borderColors = `2px solid ${borderColor}`
+
   return (
     <Box m={{
       base: "4",
@@ -11,9 +26,9 @@ const RepoCard = ({ repo }) =>{
     <Link href={repo.html_url}>
       <Card maxW="md" minW={{
         base:"xs",
-        md:"md"}} minH="xs" boxShadow="dark-lg" bg="white">
+        md:"md"}} minH="xs" border={borderColors} boxShadow={boxShadow} bg="white" >
         <CardHeader>
-          <Heading bgGradient="linear(to-r, red.900, black)" bgClip='text' textAlign="center" size="2xl" py={2}>
+          <Heading color="black" textAlign="center" size="2xl" py={2}>
             {repo.name}
           </Heading>
         </CardHeader>

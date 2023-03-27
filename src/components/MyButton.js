@@ -19,7 +19,7 @@ function MyButton() {
     <Button style={{border: `2px solid ${borderColor}`,
   backgroundColor: "transparent", boxShadow, color:"white"}} size={{
     base:"sm",
-    md:"lg"}}>Learn More</Button>
+    md:"lg"}} transisition="all 0.3s ease" _hover={{  transform: "translate3d(0, -10px, 22px)" }}>Learn More</Button>
   );
 }
 
