@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Box, Flex } from "@chakra-ui/react";
+import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Box, Flex, Icon } from "@chakra-ui/react";
 import {FaReact, FaBootstrap, FaNode, FaLink} from "react-icons/fa"
 import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiGraphql, SiApollographql, SiChakraui, SiJavascript, SiNextdotjs, SiGithub} from "react-icons/si"
 import Link from "next/link";
@@ -42,91 +42,84 @@ const RepoCard = ({ repo }) =>{
              if (topic === "chakra-ui") {
               return (
                 <Box key={topic} mx={3}>
-                  <SiChakraui width="24px" height="24px" />
-                </Box>
-              );
-            }
-            if (topic === "github") {
-              return (
-                <Box key={topic} mx={3}>
-                  <SiGithub width="24px" height="24px" />
+                  <Icon as={SiChakraui} width={10} height={10} />
                 </Box>
               );
             }
             if (topic === "nextjs") {
               return (
                 <Box key={topic} mx={3}>
-                  <SiNextdotjs width="24px" height="24px" />
+                  <Icon as={SiNextdotjs} width={10} height={10} />
                 </Box>
               );
             }
             if (topic === "react") {
               return (
                 <Box key={topic} mx={3}>
-                  <FaReact width="24px" height="24px" />
+                  <Icon as={FaReact} width={10} height={10}  />
                 </Box>
               );
             }
             if (topic === "vercel") {
               return (
                 <Box key={topic} mx={3}>
-                  <SiVercel width="24px" height="24px" />
+                  <Icon as={SiVercel} width={10} height={10}  />
                 </Box>
               );
             }
             if (topic === "openai") {
               return (
                 <Box key={topic} mx={3}>
-                  <SiOpenai width="24px" height="24px" />
+                  <Icon as={SiOpenai} width={10} height={10}  />
                 </Box>
               );
             }
             if (topic === "js") {
               return (
                 <Box key={topic} mx={3}>
-                  <SiJavascript width="24px" height="24px" />
+                  <Icon as={SiJavascript} width={10} height={10}  />
                 </Box>
               );
             }
             if (topic === "bootstrap") {
               return (
                 <Box key={topic} mx={3}>
-                  <FaBootstrap width="24px" height="24px" />
+                  <Icon as={FaBootstrap} width={10} height={10}  />
                 </Box>
               );
             }
             if (topic === "mysql") {
               return (
                 <Box key={topic} mx={3}>
-                  <SiMysql width="24px" height="24px" />
+                  <Icon as={SiMysql} width={10} height={10}  />
                 </Box>
               );
             }
             if (topic === "expressjs") {
               return (
                 <Box key={topic} mx={3}>
-                  <SiExpress width="24px" height="24px" />
+                  <Icon as={SiExpress} width={10} height={10}  />
                 </Box>
               );
             }
             if (topic === "nodejs") {
               return (
                 <Box key={topic} mx={3}>
-                  <FaNode width="24px" height="24px" />
+                  <Icon as={FaNode} width={10} height={10}  />
                 </Box>
               );
             }
             if (topic === "mongodb") {
               return (
                 <Box key={topic} mx={3}>
-                  <SiMongodb width="24px" height="24px" />
+                  <Icon as={SiMongodb} width={10} height={10}  />
                 </Box>
               );
             }
             if (topic === "tailwindcss") {
               return (
                 <Box key={topic} mx={3}>
-                  <SiTailwindcss width="24px" height="24px" />
+                  <Icon as={SiTailwindcss} width={10} height={10}  />
                 </Box>
               );
             }

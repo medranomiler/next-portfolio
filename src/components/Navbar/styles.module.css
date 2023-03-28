@@ -22,7 +22,7 @@
 
 .icon {
   padding: 4px;
-  fill: black;
+  fill: red;
 }
 
 @media screen and (max-width:680px){
