@@ -26,7 +26,11 @@ const Home = () => {
             base: 4,
             md: 10
           }}>
-            <Heading as="h1" size={{
+            <Heading className="typed-heading" as="h1" size={{
+              base: "4xl",
+              md: "4xl"
+            }} bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' p={4}>Let&#x27;s Build<br/>Something</Heading>
+                        <Heading className="typed-heading2" as="h1" size={{
               base: "4xl",
               md: "4xl"
             }} bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' p={4}>Let&#x27;s Build Something</Heading>
