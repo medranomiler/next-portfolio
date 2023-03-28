@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Navbar = () => {
 
-  const boxShadow = "2px 2px 10px red"
+
   return (
     <div>
       <Box w="100%" h="14" bgGradient="linear(to-r, black, black)" className={styles.navbar}>
@@ -14,8 +14,8 @@ const Navbar = () => {
           as={IconButton}
           aria-label="Options"
           variant="outline"
-          style={{border: "red",
-  backgroundColor: "transparent", boxShadow, color:"white"}}
+          style={{border: "#f002f8b3",
+  backgroundColor: "transparent", animation: "glow 2s ease-in-out infinite", color:"white"}}
         ><svg
           className={styles.icon}
           viewBox="0 0 100 80"
@@ -27,7 +27,7 @@ const Navbar = () => {
             <rect y="60" width="100" height="20" rx="10"></rect>
           </svg></MenuButton>
         <MenuList style={{border: "red",
-  backgroundColor: "transparent", boxShadow, color:"white"}} >
+  backgroundColor: "transparent", animation: "glow 2s ease-in-out infinite", color:"white"}} >
           <MenuItem style={{border: "red",
   backgroundColor: "transparent", color:"white"}}><Link href="/">Home</Link></MenuItem>
           <MenuItem style={{border: "red",

@@ -5,28 +5,16 @@ import Link from "next/link";
 import { useEffect, useState } from "react"
 
 const RepoCard = ({ repo }) =>{
-  const [borderColor, setBorderColor] = useState("#000"); // Set initial color
-  const colors = ["blue", "purple", "red"]; // Define array of colors
-  
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const randomColor = colors[Math.floor(Math.random() * colors.length)]; // Choose random color from array
-      setBorderColor(randomColor);
-    }, 2000);
-    return () => clearInterval(intervalId);
-  }, []);
-  
-  const boxShadow = `2px 2px 10px ${borderColor}`;
-  const borderColors = `2px solid ${borderColor}`
+
 
   return (
     <Box m={{
       base: "4",
       md: "4"}}>
     <Link href={repo.html_url}>
-      <Card maxW="md" minW={{
+      <Card bg="white" animation="glow 2s ease-in-out infinite" maxW="md" minW={{
         base:"xs",
-        md:"md"}} minH="xs" border={borderColors} boxShadow={boxShadow} bg="white" >
+        md:"md"}}  minH="sm">
         <CardHeader>
           <Heading color="black" textAlign="center" size="2xl" py={2}>
             {repo.name}

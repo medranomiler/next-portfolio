@@ -29,7 +29,7 @@ const Home = () => {
             <Heading as="h1" size={{
               base: "4xl",
               md: "4xl"
-            }} bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' p={4}>Lets Build Something</Heading>
+            }} bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' p={4}>Let&#x27;s Build Something</Heading>
             <Link href="/portfolio"><MyButton /></Link>
           </VStack>
         </AbsoluteCenter>
