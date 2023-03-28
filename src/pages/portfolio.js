@@ -29,7 +29,7 @@ const Portfolio = () => {
                 <Heading bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' textAlign="center" size="2xl" marginBottom="20">Personal Projects</Heading>
                 <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
                     <Box display="flex" alignItems="center" justifyContent="center" flexWrap="wrap" marginBottom="20">
-                        {loading ? (<Spinner />) : (repos.map((repo) => (<SlideIn><RepoCard key={repo} repo={repo}/></SlideIn>)
+                        {loading ? (<Spinner />) : (repos.map((repo) => (<SlideIn key={repo}><RepoCard key={repo} repo={repo}/></SlideIn>)
                         ))}
                     </Box>
                 <Collabs/>
