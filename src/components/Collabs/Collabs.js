@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import devstr from "./devstr.png"
 import spacedefence from "./spacedefence.png"
+import hitfinder from "./hitfinder.png"
 
 const Collabs = () => {
 
@@ -41,6 +42,14 @@ const Collabs = () => {
             }}><Image style={{
                 objectFit: "cover"
             }} src={spacedefence} /></div></Link>
+            <Box h={200}></Box>
+            <Link href="https://joshuagoeke.github.io/hit-finder/index.html"><div style={{
+                borderRadius: "20px",
+                margin: "5px",
+                overflow: "hidden"
+            }}><Image style={{
+                objectFit: "cover"
+            }} src={hitfinder} /></div></Link>
             <Box h={200}></Box>
         </>
     )
