@@ -16,8 +16,10 @@ import useFetchGitHubProfile from "../../hooks/useFetchGitHubProfile.js"
           <Flex wrap="wrap" justify="center" align="center">
         <Image className={styles.image} src={avatar} />
           <div className={styles.cardText}>
-            <Text bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'><h2 className={styles.name}>{username}</h2></Text>
-            <Text bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'><p className={styles.bio}>{bio}</p></Text>
+            <Text className={styles.name} bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'>
+              <h2>{username}</h2>
+              </Text>
+            <Text color="white"><p className={styles.bio}>{bio}</p></Text>
           </div>
           </Flex>
         </Box>

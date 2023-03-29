@@ -21,11 +21,28 @@ body {
 body {
   background-color: black;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
+.typed-heading2{
+
+    background-color: #2ecc71;
+    animation: hue 11s linear 0s infinite reverse;
+  }
+.typed-heading2::before {
+    background: linear-gradient(105deg, rgba(255, 190, 0, 0), #ffbe00);
+    animation: hue 12s linear 1s infinite;
+  }
+
+  
+  @keyframes hue {
+    to {
+      filter: hue-rotate(1turn);
+    }
+  }
+
+
 
 
 @media (prefers-color-scheme: dark) {

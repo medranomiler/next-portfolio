@@ -18,7 +18,7 @@ const RepoCard = ({ repo }) => {
       <div style={{
         perspective: "1000px"
       }}>
-        <Card bg="white" animation="glow 2s ease-in-out infinite" maxW="md" minW={{
+        <Card  bg="white" animation="glow 2s ease-in-out infinite" maxW="md" minW={{
           base: "xs",
           md: "md"}}  minH="sm"
           style={{

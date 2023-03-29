@@ -2,14 +2,13 @@ import { Box, Heading, Flex } from "@chakra-ui/react"
 import Image from "next/image"
 import Link from "next/link"
 import devstr from "./devstr.png"
-import devstrName from "./devstrtext.png"
 import spacedefence from "./spacedefence.png"
 
 const Collabs = () => {
 
     return (
         <>
-            <Heading textAlign="center" size="2xl" marginBottom="20" bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'>Collaborations</Heading>
+            <Heading className="typed-heading2" textAlign="center" size="2xl" marginBottom="20" bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'>Collaborations</Heading>
             <Link href="https://devstr.vercel.app/"><Image src={devstr} />
                 {/* <Flex>
                     <div><Image style={{

@@ -20,7 +20,9 @@ const Home = () => {
       <Box h={{
         base: "800",
         sm: "950"
-      }} bgGradient="linear(to-r, black, black)">
+      }}
+backgroundColor="black"
+       >
         <AbsoluteCenter axis="both">
           <VStack spacing={{
             base: 4,
@@ -29,7 +31,9 @@ const Home = () => {
           <Heading className="typed-heading2" as="h1" size={{
               base: "4xl",
               md: "4xl"
-            }} bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' p={4}>Let&#x27;s Build Something</Heading>
+            }}
+            bgGradient='linear(to-l, #7928CA, #FF0080)' 
+            bgClip='text' p={4}>Let&#x27;s Build Something</Heading>
             <Link href="/portfolio"><MyButton /></Link>
           </VStack>
         </AbsoluteCenter>

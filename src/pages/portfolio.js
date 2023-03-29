@@ -13,7 +13,9 @@ const Portfolio = () => {
 
     return (
         <>
-            <Box h="100%" bgGradient="linear(to-r, black, black)">
+            <Box h="100%" 
+backgroundColor="black"
+            >
                 <Box display="flex" flexDirection="row" alignItems="center" justifyContent="center" h={800} mb={200} flexWrap="wrap">
                     <Box mx={100}>
                         <ProfileCard />
@@ -25,8 +27,8 @@ const Portfolio = () => {
 
                     
                 </Box>
-                <Heading bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' textAlign="center" size="4xl" marginBottom="20">Portfolio</Heading>
-                <Heading bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' textAlign="center" size="2xl" marginBottom="20">Personal Projects</Heading>
+                <Heading className="typed-heading2" bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' textAlign="center" size="4xl" marginBottom="20">Portfolio</Heading>
+                <Heading color="white" textAlign="center" size="2xl" marginBottom="20">Personal Projects</Heading>
                 <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
                     <Box display="flex" alignItems="center" justifyContent="center" flexWrap="wrap" marginBottom="20">
                         {loading ? (<Spinner />) : (repos.map((repo) => (

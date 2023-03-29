@@ -8,7 +8,9 @@ const Navbar = () => {
 
   return (
     <div>
-      <Box w="100%" h="14" bgGradient="linear(to-r, black, black)" className={styles.navbar}>
+      <Box w="100%" h="14" 
+            backgroundColor="black"
+      className={styles.navbar}>
       <Menu>
         <MenuButton
           as={IconButton}
