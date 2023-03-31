@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
+};
 
 module.exports = {
   env: {
-    MONGO_URI: "mongodb+srv://medranomiler:root1234@cluster0.kuljfho.mongodb.net/MyApp"
+    MONGO_URI: process.env.MONGO_URI,
   },
+  ...nextConfig,
 };
-
-module.exports =  nextConfig 
