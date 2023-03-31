@@ -35,6 +35,26 @@ a {
     animation: hue 12s linear 1s infinite;
   }
 
+  .reposContainer {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    width: 90vw;
+  }
+
+  .reposTooltip{
+    color:#818181;
+    display:block;
+  }
+  .reposTooltip:hover{
+    color: white;
+  }
+  
+  .reposContainer::-webkit-scrollbar {
+    display:none;
+  }
+
   @keyframes hue {
     to {
       filter: hue-rotate(1turn);
@@ -130,3 +150,8 @@ a {
   }
 }
 
+@media screen and (max-width: 500px){
+  .reposTooltip{
+    display:none;
+  }
+}

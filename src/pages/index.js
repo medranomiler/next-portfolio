@@ -39,17 +39,11 @@ const Portfolio = () => {
             >
               Portfolio
             </Heading>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                overflowX: "scroll",
-                scrollBehavior: "smooth",
-                width: "100vw",
-              }}
-            >
+            <div className="reposTooltip">Tip! If viewing on desktop hold shift and scroll to view more</div>
+            <div className="reposContainer">
               <RepoCards />              
             </div>
+            
 
     
           </Box>
