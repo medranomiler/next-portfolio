@@ -1,11 +1,13 @@
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Box, Flex, Icon, AbsoluteCenter, Center } from "@chakra-ui/react";
 import { FaReact, FaBootstrap, FaNode, FaGithub } from "react-icons/fa";
 import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiGraphql, SiApollographql, SiChakraui, SiJavascript, SiNextdotjs, SiGithub } from "react-icons/si";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link"
+
 
 const RepoCard = ({ repo }) => {
   const [isFlipped, setIsFlipped] = useState(false);
+
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
@@ -16,7 +18,7 @@ const RepoCard = ({ repo }) => {
       base: "4",
       md: "4"}}>
       <div style={{
-        perspective: "1000px"
+        perspective: "1000px", 
       }}>
         <Card  bg="white" animation="glow 2s ease-in-out infinite" maxW="md" minW={{
           base: "xs",
@@ -24,7 +26,8 @@ const RepoCard = ({ repo }) => {
           style={{
             transformStyle: "preserve-3d",
             transition: "transform 0.5s",
-            transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"
+            transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+            cursor: "pointer"
           }}
           borderRadius={30}
           onClick={handleClick}
@@ -156,7 +159,7 @@ const RepoCard = ({ repo }) => {
         </Card>
       </div>
     </Box>
-  );
+  )
 };
 
 

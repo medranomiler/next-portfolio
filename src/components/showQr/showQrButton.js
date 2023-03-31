@@ -14,7 +14,11 @@ const ShowQrButton = () => {
 
   return (
     <div onClick={onOpen}>
-      {isVisible ? "" : (<Icon id="bitcoin" as={FaBitcoin} color="gray.200" m={3} _hover={{ cursor: "pointer", transition: "all .4s ease-in-out", transform: "scale(1.3)" }} height={104} width={104} animation="glowGithub 2s ease-in-out infinite"/>)}
+      {isVisible ? "" : (<Icon id="bitcoin" as={FaBitcoin} color="gray.200" m={3} _hover={{ cursor: "pointer", transition: "all .4s ease-in-out", transform: "scale(1.3)" }} height={{
+      base:55,
+      md:104}} width={{
+        base:55,
+        md:104}} animation="glowGithub 2s ease-in-out infinite"/>)}
       <Modal onClose={onClose} isOpen={isOpen} isCentered >
         <ModalOverlay />
         <ModalContent bg="#171a1d" borderRadius="30">

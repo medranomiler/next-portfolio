@@ -17,7 +17,7 @@ const Navbar = () => {
           aria-label="Options"
           variant="outline"
           style={{border: "#f002f8b3",
-  backgroundColor: "transparent", animation: "glow 2s ease-in-out infinite", color:"white"}}
+  backgroundColor: "black", animation: "glow 2s ease-in-out infinite", color:"white"}}
         ><svg
           className={styles.icon}
           viewBox="0 0 100 80"
@@ -29,11 +29,11 @@ const Navbar = () => {
             <rect y="60" width="100" height="20" rx="10"></rect>
           </svg></MenuButton>
         <MenuList style={{border: "red",
-  backgroundColor: "transparent", animation: "glow 2s ease-in-out infinite", color:"white"}} >
+  backgroundColor: "black", animation: "glow 2s ease-in-out infinite", color:"white"}} >
           <MenuItem style={{border: "red",
-  backgroundColor: "transparent", color:"white"}}><Link href="/">Home</Link></MenuItem>
+  backgroundColor: "black", color:"white"}}><Link href="/">Home</Link></MenuItem>
           <MenuItem style={{border: "red",
-  backgroundColor: "transparent", color:"white"}}><Link href="/portfolio">Portfolio</Link></MenuItem>
+  backgroundColor: "black", color:"white"}}><Link href="/build">Build</Link></MenuItem>
         </MenuList>
       </Menu>
       <h1 className={styles.title}></h1>

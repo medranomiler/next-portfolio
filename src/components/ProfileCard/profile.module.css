@@ -30,8 +30,16 @@
   }
 
   @media screen and (max-width: 500px){
+    .image{
+      border-radius: 50%;
+      width: 140px;
+    }
     .cardText {
       margin-left: 0px;
-      font-size: xx-large;
+      font-size: large;
+    }
+    .name {
+      font-size: 40px;
+      font-weight: bold;
     }
   }

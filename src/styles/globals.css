@@ -35,7 +35,6 @@ a {
     animation: hue 12s linear 1s infinite;
   }
 
-  
   @keyframes hue {
     to {
       filter: hue-rotate(1turn);
