@@ -19,24 +19,56 @@ const Home = () => {
     setIsVisible((prev) => !prev);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    console.log({ name: nameRef.current.value, email: emailRef.current.value, phone: phoneRef.current.value, message: messageRef.current.value })
-    
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const newUser = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+      phone: phoneRef.current.value,
+      message: messageRef.current.value,
+    };
+    console.log("new user", newUser)
+  
+    try {
+      const res = await fetch("/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
+      });
+      if (!res.ok) {
+        throw new Error("Something went wrong.");
+      }
+  
+      const data = await res.json();
+      // console.log(data);
       toast({
-        title: 'Form Submitted.',
+        title: "Form Submitted.",
         description: "Your form was submitted. I will be in touch shortly!",
-        status: 'success',
+        status: "success",
         duration: 9000,
         isClosable: true,
-        position: "top-right"
-      })
-    
-    nameRef.current.value = ""
-    emailRef.current.value = ""
-    phoneRef.current.value = ""
-    messageRef.current.value = ""
-  }
+        position: "top-right",
+      });
+  
+
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: "Error submitting form.",
+        description: "Something went wrong. Please try again later.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+        position: "top-right",
+      });
+    }
+      nameRef.current.value = "";
+      emailRef.current.value = "";
+      phoneRef.current.value = "";
+      messageRef.current.value = "";
+  };
 
   return (
     <>
