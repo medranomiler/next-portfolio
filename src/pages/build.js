@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { useState } from "react"
-import { VStack, AbsoluteCenter, Box, Heading, Button } from "@chakra-ui/react"
-import MyButton from "../components/MyButton";
+import { useState, useRef } from "react"
+import { VStack, AbsoluteCenter, Center, Box, Heading, Button, Input, FormControl, useToast } from "@chakra-ui/react"
+
 import Links from "../components/Links/Links"
 
 
@@ -9,10 +9,34 @@ import Links from "../components/Links/Links"
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const nameRef = useRef()
+  const emailRef = useRef()
+  const phoneRef = useRef()
+  const messageRef = useRef()
+  const toast = useToast()
 
   const onClick = (e) => {
     setIsVisible((prev) => !prev);
   };
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    console.log({ name: nameRef.current.value, email: emailRef.current.value, phone: phoneRef.current.value, message: messageRef.current.value })
+    
+      toast({
+        title: 'Form Submitted.',
+        description: "Your form was submitted. I will be in touch shortly!",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+        position: "top-right"
+      })
+    
+    nameRef.current.value = ""
+    emailRef.current.value = ""
+    phoneRef.current.value = ""
+    messageRef.current.value = ""
+  }
 
   return (
     <>
@@ -27,28 +51,55 @@ const Home = () => {
         base: "800",
         sm: "950"
       }}
-backgroundColor="black"
-       >
+        backgroundColor="black"
+      >
         <AbsoluteCenter axis="both">
           <VStack spacing={{
             base: 4,
             md: 10
           }}>
-          
-          <Heading className="typed-heading2" as="h1" size={{
+            {isVisible ? "" : (<>
+              <Heading className="typed-heading2" as="h1" size={{
+                base: "4xl",
+                md: "4xl"
+              }}
+                bgGradient='linear(to-l, #7928CA, #FF0080)'
+                bgClip='text' p={4}>Contact Me</Heading>
+              <FormControl><VStack spacing={{
+            base: 4,
+            md: 10
+          }} mb={5}>
+              <Input focusBorderColor="#f002f8b3" color="white" ref={nameRef} placeholder="Name" />
+              <Input focusBorderColor="#f002f8b3" color="white" ref={emailRef} placeholder="Email" />
+              <Input focusBorderColor="#f002f8b3" color="white" ref={phoneRef} placeholder="Phone Number" />
+              <Input focusBorderColor="#f002f8b3" color="white" ref={messageRef} placeholder="Message" />
+              </VStack>
+              <Center><Button onClick={onSubmit} style={{
+                backgroundColor: "transparent", color: "white", animation: "glow 2s ease-in-out infinite"
+              }} size={{
+                base: "sm",
+                md: "lg"
+              }} mb={10} transisition="all 0.3s ease" _hover={{ transform: "translate3d(0, -10px, 22px)" }}>Submit</Button>
+              </Center></FormControl>
+            </>)}
+            <Heading className="typed-heading2" as="h1" size={{
               base: "4xl",
               md: "4xl"
             }}
-            bgGradient='linear(to-l, #7928CA, #FF0080)' 
-            bgClip='text' p={4}>Let&#x27;s Build Something</Heading>
- <Button onClick={onClick} style={{
-  backgroundColor: "transparent", color:"white", animation: "glow 2s ease-in-out infinite"}} size={{
-    base:"sm",
-    md:"lg"}} mb={10} transisition="all 0.3s ease" _hover={{  transform: "translate3d(0, -10px, 22px)" }}>Learn More</Button>
-            {isVisible ? "" : (<Links/>)}      
+              bgGradient='linear(to-l, #7928CA, #FF0080)'
+              bgClip='text' p={4}>{isVisible ? (<p>Let&#x27;s Build Something</p>) : ""}</Heading>
+
+            {isVisible ? (<Button onClick={onClick} style={{
+              backgroundColor: "transparent", color: "white", animation: "glow 2s ease-in-out infinite"
+            }} size={{
+              base: "sm",
+              md: "lg"
+            }} mb={10} transisition="all 0.3s ease" _hover={{ transform: "translate3d(0, -10px, 22px)" }}>Learn More</Button>) : (<>
+              <Links />
+            </>)}
           </VStack>
         </AbsoluteCenter>
-        
+
       </Box>
     </>
   )
