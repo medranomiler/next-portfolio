@@ -40,7 +40,7 @@ a {
     flex-direction: row;
     overflow-x: scroll;
     scroll-behavior: smooth;
-    width: 90vw;
+    width: 100vw;
   }
 
   .reposTooltip{
