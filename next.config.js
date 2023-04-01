@@ -3,9 +3,4 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = {
-  env: {
-    MONGO_URI: process.env.MONGO_URI,
-  },
-  ...nextConfig,
-};
+module.exports = nextConfig;
