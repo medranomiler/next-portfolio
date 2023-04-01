@@ -27,8 +27,7 @@ const Home = () => {
       phone: phoneRef.current.value,
       message: messageRef.current.value,
     };
-    console.log("new user", newUser)
-  
+
     try {
       const res = await fetch("/api/users", {
         method: "POST",
@@ -40,18 +39,17 @@ const Home = () => {
       if (!res.ok) {
         throw new Error("Something went wrong.");
       }
-  
+
       const data = await res.json();
-      // console.log(data);
       toast({
-        title: "Form Submitted.",
+        title: `Thank you ${newUser.name}!`,
         description: "Your form was submitted. I will be in touch shortly!",
         status: "success",
         duration: 9000,
         isClosable: true,
         position: "top-right",
       });
-  
+
 
     } catch (err) {
       console.error(err);
@@ -64,10 +62,10 @@ const Home = () => {
         position: "top-right",
       });
     }
-      nameRef.current.value = "";
-      emailRef.current.value = "";
-      phoneRef.current.value = "";
-      messageRef.current.value = "";
+    nameRef.current.value = "";
+    emailRef.current.value = "";
+    phoneRef.current.value = "";
+    messageRef.current.value = "";
   };
 
   return (
@@ -79,13 +77,8 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" />
       </Head>
-      <Box h={{
-        base: "800",
-        sm: "950"
-      }}
-        backgroundColor="black"
-      >
-        <AbsoluteCenter axis="both">
+      <div style={{ height: "800px", backgroundColor: "black", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
           <VStack spacing={{
             base: 4,
             md: 10
@@ -98,28 +91,28 @@ const Home = () => {
                 bgGradient='linear(to-l, #7928CA, #FF0080)'
                 bgClip='text' p={4}>Contact Me</Heading>
               <FormControl><VStack spacing={{
-            base: 4,
-            md: 10
-          }} mb={5}>
-              <Input focusBorderColor="#f002f8b3" color="white" ref={nameRef} placeholder="Name" />
-              <Input focusBorderColor="#f002f8b3" color="white" ref={emailRef} placeholder="Email" />
-              <Input focusBorderColor="#f002f8b3" color="white" ref={phoneRef} placeholder="Phone Number" />
-              <Input focusBorderColor="#f002f8b3" color="white" ref={messageRef} placeholder="Message" />
+                base: 4,
+                md: 10
+              }} mb={5}>
+                <Input focusBorderColor="#f002f8b3" color="white" ref={nameRef} placeholder="Name" />
+                <Input focusBorderColor="#f002f8b3" color="white" ref={emailRef} placeholder="Email" />
+                <Input focusBorderColor="#f002f8b3" color="white" ref={phoneRef} placeholder="Phone Number" />
+                <Input focusBorderColor="#f002f8b3" color="white" ref={messageRef} placeholder="Message" />
               </VStack>
-              <Center><Button onClick={onSubmit} style={{
-                backgroundColor: "transparent", color: "white", animation: "glow 2s ease-in-out infinite"
-              }} size={{
-                base: "sm",
-                md: "lg"
-              }} mb={10} transisition="all 0.3s ease" _hover={{ transform: "translate3d(0, -10px, 22px)" }}>Submit</Button>
-              </Center></FormControl>
+                <Center><Button onClick={onSubmit} style={{
+                  backgroundColor: "transparent", color: "white", animation: "glow 2s ease-in-out infinite"
+                }} size={{
+                  base: "sm",
+                  md: "lg"
+                }} mb={10} transisition="all 0.3s ease" _hover={{ transform: "translate3d(0, -10px, 22px)" }}>Submit</Button>
+                </Center></FormControl>
             </>)}
             <Heading className="typed-heading2" as="h1" size={{
               base: "4xl",
               md: "4xl"
             }}
               bgGradient='linear(to-l, #7928CA, #FF0080)'
-              bgClip='text' p={4}>{isVisible ? (<p>Let&#x27;s Build Something</p>) : ""}</Heading>
+              bgClip='text' p={4}>{isVisible ? (<p style={{ textAlign: "center" }}>Let&#x27;s Build Something</p>) : ""}</Heading>
 
             {isVisible ? (<Button onClick={onClick} style={{
               backgroundColor: "transparent", color: "white", animation: "glow 2s ease-in-out infinite"
@@ -130,9 +123,9 @@ const Home = () => {
               <Links />
             </>)}
           </VStack>
-        </AbsoluteCenter>
+        </div>
 
-      </Box>
+      </div>
     </>
   )
 }

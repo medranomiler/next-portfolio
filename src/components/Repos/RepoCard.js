@@ -1,6 +1,6 @@
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Box, Flex, Icon, AbsoluteCenter, Center } from "@chakra-ui/react";
 import { FaReact, FaBootstrap, FaNode, FaGithub } from "react-icons/fa";
-import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiGraphql, SiApollographql, SiChakraui, SiJavascript, SiNextdotjs, SiGithub } from "react-icons/si";
+import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiGraphql, SiApollographql, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku } from "react-icons/si";
 import { useState } from "react";
 import Link from "next/link"
 
@@ -55,6 +55,20 @@ const RepoCard = ({ repo }) => {
               return (
                 <Box key={topic} mx={3}>
                   <Icon as={SiChakraui} width={10} height={10} />
+                </Box>
+              );
+            }
+            if (topic === "github") {
+              return (
+                <Box key={topic} mx={3}>
+                  <Icon as={SiGithub} width={10} height={10} />
+                </Box>
+              );
+            }
+            if (topic === "heroku") {
+              return (
+                <Box key={topic} mx={3}>
+                  <Icon as={SiHeroku} width={10} height={10} />
                 </Box>
               );
             }

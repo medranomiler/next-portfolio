@@ -12,13 +12,13 @@ function useFetchGitHubData() {
       console.log(data);
       setRepos([
         data[0],
+        data[9],
+        data[19],
+        data[14],
         data[3],
         data[4],
         data[12],
         data[18],
-        data[14],
-        data[9],
-        data[19],
       ]);
       setLoading(false);
     }
