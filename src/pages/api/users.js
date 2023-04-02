@@ -4,7 +4,8 @@ import User from "../../../src/models/Users";
 export default function handler(req, res) {
   switch (req.method) {
     case "GET": {
-      return getUsers(req, res);
+      return res.status(405).json({ error: "Method not allowed" });
+      // return getUsers(req, res);
     }
     case "POST": {
       return addUser(req, res);
@@ -15,17 +16,17 @@ export default function handler(req, res) {
   }
 }
 
-async function getUsers(req, res) {
-  try {
-    await connectMongo();
+// async function getUsers(req, res) {
+//   try {
+//     await connectMongo();
 
-    const users = await User.find();
+//     const users = await User.find();
 
-    res.status(200).json(users);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-}
+//     res.status(200).json(users);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// }
 
 async function addUser(req, res) {
   try {

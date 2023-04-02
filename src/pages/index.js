@@ -1,5 +1,4 @@
 import { Box, Heading } from "@chakra-ui/react";
-import { useEffect, useRef } from "react";
 import ProfileCard from "../components/ProfileCard/ProfileCard.js";
 import RepoCards from "../components/Repos/RepoCards.js";
 import Links from "../components/Links/Links.js";
