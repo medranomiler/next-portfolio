@@ -3,6 +3,7 @@ import ProfileCard from "../components/ProfileCard/ProfileCard.js";
 import RepoCards from "../components/Repos/RepoCards.js";
 import Links from "../components/Links/Links.js";
 import Collabs from "../components/Collabs/Collabs.js";
+import dynamic from "next/dynamic"
 
 const Portfolio = () => {
 
@@ -60,4 +61,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default dynamic (() => Promise.resolve(Portfolio), {ssr: false})
