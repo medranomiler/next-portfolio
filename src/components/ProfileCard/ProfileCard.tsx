@@ -14,7 +14,7 @@ import useFetchGitHubProfile from "../../hooks/useFetchGitHubProfile"
     <>
     <Box bg="transparent" padding={10} borderRadius={20}>
           <Flex wrap="wrap" justify="center" align="center">
-        <Image className={styles.image} src={avatar} />
+        <Image alt="profileImage" className={styles.image} src={avatar} />
           <div className={styles.cardText}>
             <Text className={styles.name} bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'>
               <h2>{username}</h2>
