@@ -10,12 +10,19 @@ interface ToggleQrDisplayResult {
   onClose: () => void;
 }
 
-const toggleQrDisplay: () => ToggleQrDisplayResult = () => {
-  return useDisclosure();
-};
+const useToggleQrDisplay = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const toggleQrDisplay: () => ToggleQrDisplayResult = () => {
+    return { isOpen, onOpen, onClose };
+  };
+  return toggleQrDisplay;
+}
 
 const ShowQrButton = () => {
   const [isVisible, setIsVisible] = useState(false);
+
+  const toggleQrDisplay = useToggleQrDisplay();
+
   const { isOpen, onOpen, onClose } = toggleQrDisplay();
 
   return (
