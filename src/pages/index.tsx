@@ -1,8 +1,8 @@
 import { Box, Heading } from "@chakra-ui/react";
-import ProfileCard from "../components/ProfileCard/ProfileCard.js";
-import RepoCards from "../components/Repos/RepoCards.js";
-import Links from "../components/Links/Links.js";
-import Collabs from "../components/Collabs/Collabs.js";
+import ProfileCard from "../components/ProfileCard/ProfileCard";
+import RepoCards from "../components/Repos/RepoCards";
+import Links from "../components/Links/Links";
+import Collabs from "../components/Collabs/Collabs";
 import dynamic from "next/dynamic"
 
 const Portfolio = () => {

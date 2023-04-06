@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useState, useRef } from "react"
 import { VStack, AbsoluteCenter, Center, Box, Heading, Button, Input, FormControl, useToast } from "@chakra-ui/react"
-
 import Links from "../components/Links/Links"
 
 

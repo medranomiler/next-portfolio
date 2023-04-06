@@ -2,7 +2,7 @@ import { Flex, Box, Link, Icon } from "@chakra-ui/react";
 import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { ImMail4, ImLinkedin} from "react-icons/im";
 import ShowQrButton from "../showQr/showQrButton";
-import SlideIn from "../../hooks/SlideIn.js";
+import SlideIn from "../../hooks/SlideIn";
 
 const Links = () => {
 

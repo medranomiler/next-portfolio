@@ -9,18 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.17",
-    "@chakra-ui/react": "^2.4.9",
-    "dotenv": "^16.0.3",
-    "eslint": "8.36.0",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.33",
+    "@types/react-dom": "18.0.11",
+    "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
-    "mongodb": "^4.13.0",
-    "mongoose": "^6.8.3",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-qr-code": "^2.0.11",
-    "vercel": "^28.18.3"
+    "mongodb": "^4.13.0",
+    "mongoose": "^6.8.3",
+    "typescript": "5.0.3",
+    "@chakra-ui/icons": "^2.0.17",
+    "@chakra-ui/react": "^2.4.9",
+    "dotenv": "^16.0.3"
   }
 }
