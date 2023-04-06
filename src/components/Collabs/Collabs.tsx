@@ -10,7 +10,7 @@ const Collabs = () => {
     return (
         <>
             <Heading className="typed-heading2" textAlign="center" size="2xl" marginBottom="20" bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text'>Collaborations</Heading>
-            <Link href="https://devstr.vercel.app/"><Image src={devstr} />
+            <Link href="https://devstr.vercel.app/"><Image src={devstr}  alt="devstr"/>
                 {/* <Flex>
                     <div><Image style={{
                     mixBlendMode: "multiply",
@@ -41,7 +41,7 @@ const Collabs = () => {
                 overflow: "hidden"
             }}><Image style={{
                 objectFit: "cover"
-            }} src={spacedefence} /></div></Link>
+            }} src={spacedefence} alt="spacedefence"/></div></Link>
             <Box h={200}></Box>
             <Link href="https://joshuagoeke.github.io/hit-finder/index.html"><div style={{
                 borderRadius: "20px",
@@ -49,7 +49,7 @@ const Collabs = () => {
                 overflow: "hidden"
             }}><Image style={{
                 objectFit: "cover"
-            }} src={hitfinder} /></div></Link>
+            }} src={hitfinder} alt="hitfinder"/></div></Link>
             <Box h={200}></Box>
         </>
     )
