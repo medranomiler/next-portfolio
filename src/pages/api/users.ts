@@ -1,41 +1,37 @@
-import connectMongo from "../../lib/connectMongo";
-import User from "../../models/Users";
+import { NextApiRequest, NextApiResponse } from 'next';
+import connectMongo from '../../lib/connectMongo';
+import User from '../../models/Users';
 
-export default function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<{ error: string }>
+) {
   switch (req.method) {
-    case "GET": {
-      return res.status(405).json({ error: "Method not allowed" });
+    case 'GET': {
+      return res.status(405).json({ error: 'Method not allowed' });
       // return getUsers(req, res);
     }
-    case "POST": {
+    case 'POST': {
       return addUser(req, res);
     }
     default: {
-      return res.status(405).json({ error: "Method not allowed" });
+      return res.status(405).json({ error: 'Method not allowed' });
     }
   }
 }
 
-// async function getUsers(req, res) {
-//   try {
-//     await connectMongo();
-
-//     const users = await User.find();
-
-//     res.status(200).json(users);
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// }
-
-async function addUser(req, res) {
+async function addUser(
+  req: NextApiRequest,
+  res: NextApiResponse | { error: string }
+) {
   try {
     await connectMongo();
 
     const user = await User.create(req.body);
 
-    res.status(201).json(user);
+    (res as NextApiResponse).status(201).json(user);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    (res as NextApiResponse).status(500).json({ error: (error as Error).message });
   }
 }
+
