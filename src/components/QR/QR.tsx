@@ -1,6 +1,12 @@
 import QRCode from "react-qr-code";
 import styles from "../QR/qr.module.css"
-const QR = ({ value }) => {
+
+
+interface QRProps {
+  value: string;
+}
+
+const QR = ({ value }: QRProps) => {
   return (
 
     <div className={styles.qr}>

@@ -1,7 +1,11 @@
 import Navbar from "../Navbar/Navbar"
 import Head from "next/head";
 
-const Layout = ({ children }) =>{
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) =>{
   return (
     <>
           <Head>

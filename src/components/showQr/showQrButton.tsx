@@ -1,16 +1,23 @@
 import QR from "../QR/QR"
 import React, { useState } from "react";
-import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, useDisclosure, Icon, Box } from "@chakra-ui/react"
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, useDisclosure, UseDisclosureProps, Icon, Box } from "@chakra-ui/react"
 import { FaBitcoin, FaInfoCircle  } from "react-icons/fa";
 import Link from "next/link"
+
+interface ToggleQrDisplayResult {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}
 
 const ShowQrButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleQrDisplay = (e) => {
-    setIsVisible((prev) => !prev);
+  const toggleQrDisplay: () => ToggleQrDisplayResult = () => {
+    return useDisclosure();
   };
-  const { isOpen, onOpen, onClose } = useDisclosure(toggleQrDisplay)
+
+  const { isOpen, onOpen, onClose } = toggleQrDisplay();
 
   return (
     <div onClick={onOpen}>

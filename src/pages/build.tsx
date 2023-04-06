@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState, useRef } from "react"
-import { VStack, AbsoluteCenter, Center, Box, Heading, Button, Input, FormControl, useToast } from "@chakra-ui/react"
+import { VStack, Center, Heading, Button, Input, FormControl, useToast } from "@chakra-ui/react"
 import Links from "../components/Links/Links"
 
 
@@ -8,23 +8,63 @@ import Links from "../components/Links/Links"
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const nameRef = useRef()
-  const emailRef = useRef()
-  const phoneRef = useRef()
-  const messageRef = useRef()
+  const nameRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
+  const phoneRef = useRef<HTMLInputElement>(null)
+  const messageRef = useRef<HTMLInputElement>(null)
+
+  
   const toast = useToast()
 
-  const onClick = (e) => {
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setIsVisible((prev) => !prev);
   };
-
-  const onSubmit = async (e) => {
+  
+  const onSubmit = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+  
+    // Check if all required fields are completed
+    if (!nameRef.current?.value || !emailRef.current?.value || !phoneRef.current?.value || !messageRef.current?.value) {
+      toast({
+        title: "Please complete all fields",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+        position: "top-right",
+      });
+      return;
+    }
+  
+    // Check if email is in correct format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailRef.current?.value)) {
+      toast({
+        title: "Please enter a valid email address",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+        position: "top-right",
+      });
+      return;
+    }
+  
+    // Check if phone number is in correct format
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phoneRef.current?.value)) {
+      toast({
+        title: "Please enter a valid phone number",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+        position: "top-right",
+      });
+
+    }
     const newUser = {
-      name: nameRef.current.value,
-      email: emailRef.current.value,
-      phone: phoneRef.current.value,
-      message: messageRef.current.value,
+      name: nameRef.current!.value,
+      email: emailRef.current!.value,
+      phone: phoneRef.current!.value,
+      message: messageRef.current!.value,
     };
 
     try {
@@ -61,10 +101,10 @@ const Home = () => {
         position: "top-right",
       });
     }
-    nameRef.current.value = "";
-    emailRef.current.value = "";
-    phoneRef.current.value = "";
-    messageRef.current.value = "";
+    nameRef.current!.value = "";
+    emailRef.current!.value = "";
+    phoneRef.current!.value = "";
+    messageRef.current!.value = "";
   };
 
   return (
@@ -89,6 +129,7 @@ const Home = () => {
               }}
                 bgGradient='linear(to-l, #7928CA, #FF0080)'
                 bgClip='text' p={4}>Contact Me</Heading>
+                
               <FormControl><VStack spacing={{
                 base: 4,
                 md: 10
@@ -103,7 +144,7 @@ const Home = () => {
                 }} size={{
                   base: "sm",
                   md: "lg"
-                }} mb={10} transisition="all 0.3s ease" _hover={{ transform: "translate3d(0, -10px, 22px)" }}>Submit</Button>
+                }} mb={10} transition="all 0.3s ease" _hover={{ transform: "translate3d(0, -10px, 22px)" }}>Submit</Button>
                 </Center></FormControl>
             </>)}
             <Heading className="typed-heading2" as="h1" size={{
@@ -118,7 +159,7 @@ const Home = () => {
             }} size={{
               base: "sm",
               md: "lg"
-            }} mb={10} transisition="all 0.3s ease" _hover={{ transform: "translate3d(0, -10px, 22px)" }}>Learn More</Button>) : (<>
+            }} mb={10} transition="all 0.3s ease" _hover={{ transform: "translate3d(0, -10px, 22px)" }}>Learn More</Button>) : (<>
               <Links />
             </>)}
           </VStack>

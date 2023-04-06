@@ -1,13 +1,23 @@
 import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Box, Flex, Icon, AbsoluteCenter, Center } from "@chakra-ui/react";
 import { FaReact, FaBootstrap, FaNode, FaGithub } from "react-icons/fa";
-import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiGraphql, SiApollographql, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku } from "react-icons/si";
+import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiGraphql, SiApollographql, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript } from "react-icons/si";
 import { useState } from "react";
 import Link from "next/link"
 
 
-const RepoCard = ({ repo }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
+interface Repo {
+  name: string;
+  description: string;
+  topics: string[];
+  html_url: string;
+}
 
+interface RepoCardProps {
+  repo: Repo;
+}
+
+const RepoCard = ({ repo }: RepoCardProps) => {
+  const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = () => {
     setIsFlipped(!isFlipped);
@@ -97,6 +107,13 @@ const RepoCard = ({ repo }) => {
               return (
                 <Box key={topic} mx={3}>
                   <Icon as={SiOpenai} width={10} height={10}  />
+                </Box>
+              );
+            }
+            if (topic === "typescript") {
+              return (
+                <Box key={topic} mx={3}>
+                  <Icon as={SiTypescript} width={10} height={10}  />
                 </Box>
               );
             }

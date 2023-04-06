@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
+
 function useFetchGitHubData() {
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [repos, setRepos] = useState<any>([]);
+  const [loading, setLoading] = useState<Boolean>(true);
 
   useEffect(() => {
     async function fetchGitHubData() {

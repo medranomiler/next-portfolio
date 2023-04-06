@@ -1,25 +1,28 @@
-import useFetchGitHubData from "../../hooks/useFetchGitHubData"
-import React, { useEffect, useRef } from 'react';
+import useFetchGitHubData from "../../hooks/useFetchGitHubData";
 import RepoCard from "./RepoCard";
-import SlideIn from "../../hooks/SlideIn"
-import { Spinner } from "@chakra-ui/react"
 
-const RepoCards = () =>{
-const [repos, loading] = useFetchGitHubData();
-
-return (
-<>   
-  {(repos.map((repo) => ( 
-  <SlideIn key={repo}>
-  <RepoCard  repo={repo}/>
-  </SlideIn>
-  )))}
-  </>
-)
-
+interface Repo {
+  id: number,
+  name: string;
+  description: string;
+  topics: string[];
+  html_url: string;
 }
 
+const RepoCards = () =>{
+  const [repos, loading] = useFetchGitHubData();
+
+  return (
+    <>   
+      {(repos.map((repo: Repo) => ( 
+        <RepoCard key={repo.id} repo={repo}/>
+      )))}
+    </>
+  );
+};
+
 export default RepoCards;
+
 
 
 
