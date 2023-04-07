@@ -25,9 +25,9 @@ const RepoCard = ({ repo }: RepoCardProps) => {
     <img className="w-full h-1/2 object-cover" src={repo.image} alt="" />
   </a> */}
   <div className="h-1/4">
-    <a href={repo.html_url}>
+    <Link href={repo.html_url}>
       <p className="text-center text-3xl font-bold py-2 dark:text-gray-400">{repo.name}</p>
-    </a>
+    </Link>
   </div>
     <div className="h-1/2">
     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{repo.description}</p>
