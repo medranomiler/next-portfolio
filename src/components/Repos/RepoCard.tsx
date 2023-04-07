@@ -1,6 +1,5 @@
-import { FaReact, FaBootstrap, FaNode, FaGithub, FaCcStripe } from "react-icons/fa";
+import { FaReact, FaBootstrap, FaNode, FaCcStripe } from "react-icons/fa";
 import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql } from "react-icons/si";
-import { useState } from "react";
 import Link from "next/link"
 
 
