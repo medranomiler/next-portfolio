@@ -1,6 +1,5 @@
-import { Card, CardHeader, CardBody, CardFooter, Heading, Text, Box, Flex, Icon, AbsoluteCenter, Center } from "@chakra-ui/react";
-import { FaReact, FaBootstrap, FaNode, FaGithub } from "react-icons/fa";
-import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiGraphql, SiApollographql, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript } from "react-icons/si";
+import { FaReact, FaBootstrap, FaNode, FaGithub, FaCcStripe } from "react-icons/fa";
+import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql } from "react-icons/si";
 import { useState } from "react";
 import Link from "next/link"
 
@@ -10,6 +9,7 @@ interface Repo {
   description: string;
   topics: string[];
   html_url: string;
+  image: string;
 }
 
 interface RepoCardProps {
@@ -17,179 +17,112 @@ interface RepoCardProps {
 }
 
 const RepoCard = ({ repo }: RepoCardProps) => {
-  const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleClick = () => {
-    setIsFlipped(!isFlipped);
-  };
 
   return (
-    <Box m={{
-      base: "4",
-      md: "4"}}>
-      <div style={{
-        perspective: "1000px", 
-      }}>
-        <Card  bg="white" animation="glow 2s ease-in-out infinite" maxW="md" minW={{
-          base: "xs",
-          md: "md"}}  minH="sm"
-          style={{
-            transformStyle: "preserve-3d",
-            transition: "transform 0.5s",
-            transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-            cursor: "pointer"
-          }}
-          borderRadius={30}
-          onClick={handleClick}
-        >
-          <div style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            backfaceVisibility: "hidden"
-          }}>
-            <CardHeader>
-              <Heading color="black" textAlign="center" size="2xl" py={2}>
-                {repo.name}
-              </Heading>
-            </CardHeader>
-            <CardBody>
-              <Text>{repo.description}</Text>
-            </CardBody>
-            <CardFooter
-              justify='center'
-              flexWrap='wrap'
-            >
-              {repo.topics.map((topic) => {
-             if (topic === "chakra-ui") {
+<div className="w-96 h-96 m-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden p-5">
+  {/* <a href={repo.html_url}>
+    <img className="w-full h-1/2 object-cover" src={repo.image} alt="" />
+  </a> */}
+  <div className="h-1/4">
+    <a href={repo.html_url}>
+      <p className="text-center text-3xl font-bold py-2 dark:text-gray-400">{repo.name}</p>
+    </a>
+  </div>
+    <div className="h-1/2">
+    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{repo.description}</p>
+    </div>
+    <div className=" h-1/4 flex justify-center flex-wrap dark:text-gray-400">
+          {repo.topics.map((topic) => {
+            if (topic === "chakra-ui") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiChakraui} width={10} height={10} />
-                </Box>
+                  <SiChakraui key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "github") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiGithub} width={10} height={10} />
-                </Box>
+                  <SiGithub key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "heroku") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiHeroku} width={10} height={10} />
-                </Box>
+                  <SiHeroku key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "nextjs") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiNextdotjs} width={10} height={10} />
-                </Box>
+                  <SiNextdotjs key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "react") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={FaReact} width={10} height={10}  />
-                </Box>
+                  <FaReact key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "vercel") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiVercel} width={10} height={10}  />
-                </Box>
+                  <SiVercel key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "openai") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiOpenai} width={10} height={10}  />
-                </Box>
+                  <SiOpenai key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "typescript") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiTypescript} width={10} height={10}  />
-                </Box>
+                  <SiTypescript key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "js") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiJavascript} width={10} height={10}  />
-                </Box>
+                  <SiJavascript key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "bootstrap") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={FaBootstrap} width={10} height={10}  />
-                </Box>
+                  <FaBootstrap key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "mysql") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiMysql} width={10} height={10}  />
-                </Box>
+                  <SiMysql key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "expressjs") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiExpress} width={10} height={10}  />
-                </Box>
+                  <SiExpress key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "nodejs") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={FaNode} width={10} height={10}  />
-                </Box>
+                  <FaNode key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "mongodb") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiMongodb} width={10} height={10}  />
-                </Box>
+                  <SiMongodb key={topic} className="mx-3 h-10 w-10"/>
               );
             }
             if (topic === "tailwindcss") {
               return (
-                <Box key={topic} mx={3}>
-                  <Icon as={SiTailwindcss} width={10} height={10}  />
-                </Box>
+                  <SiTailwindcss key={topic} className="mx-3 h-10 w-10"/>
+              );
+            }
+            if (topic === "graphql") {
+              return (
+                  <SiGraphql key={topic} className="mx-3 h-10 w-10"/>
+              );
+            }
+            if (topic === "stripe") {
+              return (
+                  <FaCcStripe key={topic} className="mx-3 h-10 w-10"/>
               );
             }
           })}
-            </CardFooter>
-          </div>
-          <div style={{
-            position: "absolute",
-            width: "100%",
-            height: "100%",
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)"
-          }}>
-                        <CardHeader>
-              <Heading color="black" textAlign="center" size="2xl" py={2}>
-                View The Repository on GitHub
-              </Heading>
-            </CardHeader>
-            <CardBody>
-              <Box>   
-              <Center><Link href={repo.html_url}><Icon as={FaGithub} height={100} width={100} /></Link></Center>  
-              </Box>
-            </CardBody>
-          </div>
-        </Card>
-      </div>
-    </Box>
+            </div>
+</div>
+
   )
 };
 

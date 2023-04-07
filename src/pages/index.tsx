@@ -1,62 +1,43 @@
-import { Box, Heading } from "@chakra-ui/react";
-import ProfileCard from "../components/ProfileCard/ProfileCard";
+import ProfileCard from "../components/ProfileCard";
 import RepoCards from "../components/Repos/RepoCards";
-import Links from "../components/Links/Links";
-import Collabs from "../components/Collabs/Collabs";
+import Collabs from "../components/Collabs"
 import dynamic from "next/dynamic"
+import { useState, useMemo, SetStateAction } from "react";
 
 const Portfolio = () => {
+  const [projects, setProjects] = useState("personal");
 
+  const repoCards = useMemo(() => {
+    return <RepoCards />;
+  }, []);
+  const collabs = useMemo(() => {
+    return <Collabs />;
+  }, []);
+
+  function projectHandler(type: SetStateAction<string>) {
+    setProjects(type);
+  }
 
   return (
     <>
-      <Box h="100%" backgroundColor="black">
-        <Box
-          display="flex"
-          flexDirection="row"
-          justifyContent="center"
-          h={800}
-          mb={200}
-          flexWrap="wrap"
-        >
-          <Box mx={100}>
-            <ProfileCard />
-        <Box
-              display="flex"
-              flexDirection="row"
-              alignItems="center"
-              justifyContent="center"
-              flexWrap="wrap"
-            >
-              <Links />
-            </Box>
-            <Heading
-              bgGradient="linear(to-l, #7928CA, #FF0080)"
-              bgClip="text"
-              textAlign="center"
-              size="4xl"
-              marginBottom="10"
-            >
-              Portfolio
-            </Heading>
-            <div className="reposTooltip">Tip! If viewing on desktop hold shift and scroll to view more</div>
-            <div className="reposContainer">
-              <RepoCards />              
-            </div>
-            
-
-    
-          </Box>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <Collabs />
-        </Box>
-      </Box>
+      <div className="min-h-screen md:p-6 p-0 dark:bg-gray-900">
+        <div className="flex justify-center h-1/3 flex-wrap">
+          <ProfileCard />
+        </div>
+        <div className="h-1/3">
+        <h2 className="lg:text-5xl md:text-4xl text-3xl font-bold dark:text-gray-400 p-4">Portfolio</h2>
+        <div className="flex">
+          <h3 className={`cursor-pointer lg:text-4xl md:text-3xl text-2xl font-light mr-10 dark:text-gray-400 p-4 ${projects === "personal" && "text-blue-500 dark:text-blue-500"}`} onClick={() => projectHandler("personal")}>Personal</h3>
+          <h3 className={`cursor-pointer lg:text-4xl md:text-3xl text-2xl font-light  dark:text-gray-400 p-4 ${projects === "collabs" && "text-blue-500 dark:text-blue-500"}`} onClick={() => projectHandler("collabs")}>Collaborations</h3>
+        </div>
+        </div>
+        <div className="h-1/3">
+        <div className="flex flex-wrap justify-center h-1/2">
+          {projects === "personal" && repoCards}
+          {projects === "collabs" && collabs}
+        </div>
+        </div>
+      </div>
     </>
   );
 };
