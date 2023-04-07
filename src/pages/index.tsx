@@ -2,12 +2,11 @@ import ProfileCard from "../components/ProfileCard";
 import RepoCards from "../components/Repos/RepoCards";
 import Collabs from "../components/Collabs"
 import dynamic from "next/dynamic"
-import { useState, useMemo, SetStateAction } from "react";
+import { useMemo } from "react";
 import { Tab } from "@headlessui/react"
 
 
 const Portfolio = () => {
-  const [projects, setProjects] = useState("personal");
 
   const repoCards = useMemo(() => {
     return <RepoCards />;
@@ -16,9 +15,6 @@ const Portfolio = () => {
     return <Collabs />;
   }, []);
 
-  function projectHandler(type: SetStateAction<string>) {
-    setProjects(type);
-  }
 
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -44,7 +40,7 @@ const Portfolio = () => {
             className={({ selected }) =>
               classNames(
                 'w-full rounded-lg py-2.5 px-4 text-sm font-medium leading-5 text-blue-700',
-                'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                'ring-white ring-opacity-60 ring-offset-0 ring-offset-white focus:outline-none focus:ring-0',
                 selected
                   ? 'bg-white shadow'
                   : 'text-blue-100 hover:bg-white/[0.12] hover:text-white'
@@ -65,11 +61,6 @@ const Portfolio = () => {
           </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
-
-    <div className="h-1/3">
-        <div className="flex flex-wrap justify-center h-1/2">
-        </div>
-        </div>
       </div>
     </>
   );

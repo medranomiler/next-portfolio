@@ -14,7 +14,7 @@ type NavItem = {
 
 const navigation: NavItem[] = [
   { name: 'Home', href: '/', current: false },
-  { name: 'Build', href: '/build', current: false }
+  { name: 'Contact', href: '/contact', current: false }
 ];
 
 function classNames(...classes: string[]) {

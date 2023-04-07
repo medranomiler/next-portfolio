@@ -12,7 +12,7 @@ const collabs = [
         name: "jate",
         description: "JATE is a fully functional taco restaurant website. It demonstrates my ability to create a fully functional e-commerce site, with a stripe checkout integration.",
         topics: ["stripe", "graphql", "react", "heroku"],
-        html_url: "",
+        html_url: "https://jate-emporium.herokuapp.com/",
         image: "",
     },
     {

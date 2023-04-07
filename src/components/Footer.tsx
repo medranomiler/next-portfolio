@@ -20,7 +20,7 @@ const Footer: React.FC = () =>{
             <Link href="https://github.com/medranomiler"><FaGithub className="h-8 w-8 mx-5"/></Link>
         </li>
         <li>
-            <Link href="/build" className="hover:underline"><BsFillChatDotsFill className="h-8 w-8 mx-5"/></Link>
+            <Link href="/contact" className="hover:underline"><BsFillChatDotsFill className="h-8 w-8 mx-5"/></Link>
         </li>
     </ul>
     </div>
