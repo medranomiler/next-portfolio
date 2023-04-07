@@ -32,7 +32,7 @@ export default function Navbar() {
   const [colorMode, setColorMode] = useColorMode();
   const [enabled, setEnabled] = useState(false)
 
-  enabled? colorMode === "dark": colorMode === "light"
+  enabled ? colorMode === "dark" : colorMode === "light"
 
   return (
     <Disclosure as="nav" className="dark:bg-gray-900 bg:white border-b  border-gray-200 dark:border-gray-700">
@@ -86,43 +86,23 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-<SunIcon/>
-      <Switch
-  checked={colorMode === 'dark'}
-  onChange={() =>
-    setColorMode(colorMode === 'dark' ? 'light' : 'dark')
-  }
-  className={`${colorMode === 'dark' ? 'bg-gray-700' : 'bg-gray-200'}
-  relative inline-flex flex-shrink-0 h-[24px] w-[40px] border-2 border-transparent rounded-full cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
->
-  <span className="sr-only">Switch between light and dark mode</span>
-  <span
-    aria-hidden="true"
-    className={`${colorMode === 'dark' ? 'translate-x-[16px]' : 'translate-x-[0]'}
-    inline-block h-[20px] w-[20px] rounded-full bg-white shadow-md transform transition ease-in-out duration-200`}
-  />
-</Switch>
-<MoonIcon/>
-              </div> */}
-              <div className="relative inline-flex items-center">
-  <Switch
-    checked={colorMode === 'dark'}
-    onChange={() =>
-      setColorMode(colorMode === 'dark' ? 'light' : 'dark')
-    }
-    className={`${colorMode === 'dark' ? 'bg-gray-700' : 'bg-gray-200'}
+              <div className="relative inline-flex items-center mr-2.5">
+                <Switch
+                  checked={colorMode === 'dark'}
+                  onChange={() =>
+                    setColorMode(colorMode === 'dark' ? 'light' : 'dark')
+                  }
+                  className={`${colorMode === 'dark' ? 'bg-gray-700' : 'bg-gray-200'}
       relative inline-flex flex-shrink-0 h-[24px] w-[40px] border-2 border-transparent rounded-full cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
-  >
-    <span className="sr-only">Switch between light and dark mode</span>
-    <span
-      aria-hidden="true"
-      className={`${colorMode === 'dark' ? 'translate-x-[16px]' : 'translate-x-[0]'}
+                >
+                  <span className="sr-only">Switch between light and dark mode</span>
+                  <span
+                    aria-hidden="true"
+                    className={`${colorMode === 'dark' ? 'translate-x-[16px]' : 'translate-x-[0]'}
         inline-block h-[20px] w-[20px] rounded-full bg-white shadow-md transform transition ease-in-out duration-200`}
-    />
-  </Switch>
-</div>
-
+                  />
+                </Switch>
+              </div>
             </div>
           </div>
 
