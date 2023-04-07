@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure, Menu, Transition, Switch } from '@headlessui/react'
+import { useState } from 'react'
 import { Bars3Icon, BellIcon, XMarkIcon, MoonIcon, SunIcon } from '@heroicons/react/24/outline'
 import Link from "next/link"
 import Image from "next/image"
@@ -29,6 +30,9 @@ export const testUser = {
 
 export default function Navbar() {
   const [colorMode, setColorMode] = useColorMode();
+  const [enabled, setEnabled] = useState(false)
+
+  enabled? colorMode === "dark": colorMode === "light"
 
   return (
     <Disclosure as="nav" className="dark:bg-gray-900 bg:white border-b  border-gray-200 dark:border-gray-700">
@@ -82,16 +86,43 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="rounded-full dark:bg-gray-900 p-1 text-gray-400 hover:text-black  dark:hover:text-white"
-                  onClick={() => setColorMode(colorMode === "light" ? "dark" : "light")}
-                >
-                  <span className="sr-only">View notifications</span>
-                  {colorMode === "light" ? <MoonIcon className="h-6 w-6" aria-hidden="true" /> : <SunIcon className="h-6 w-6" aria-hidden="true" /> }
-                </button>
-              </div>
+              {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+<SunIcon/>
+      <Switch
+  checked={colorMode === 'dark'}
+  onChange={() =>
+    setColorMode(colorMode === 'dark' ? 'light' : 'dark')
+  }
+  className={`${colorMode === 'dark' ? 'bg-gray-700' : 'bg-gray-200'}
+  relative inline-flex flex-shrink-0 h-[24px] w-[40px] border-2 border-transparent rounded-full cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+>
+  <span className="sr-only">Switch between light and dark mode</span>
+  <span
+    aria-hidden="true"
+    className={`${colorMode === 'dark' ? 'translate-x-[16px]' : 'translate-x-[0]'}
+    inline-block h-[20px] w-[20px] rounded-full bg-white shadow-md transform transition ease-in-out duration-200`}
+  />
+</Switch>
+<MoonIcon/>
+              </div> */}
+              <div className="relative inline-flex items-center">
+  <Switch
+    checked={colorMode === 'dark'}
+    onChange={() =>
+      setColorMode(colorMode === 'dark' ? 'light' : 'dark')
+    }
+    className={`${colorMode === 'dark' ? 'bg-gray-700' : 'bg-gray-200'}
+      relative inline-flex flex-shrink-0 h-[24px] w-[40px] border-2 border-transparent rounded-full cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+  >
+    <span className="sr-only">Switch between light and dark mode</span>
+    <span
+      aria-hidden="true"
+      className={`${colorMode === 'dark' ? 'translate-x-[16px]' : 'translate-x-[0]'}
+        inline-block h-[20px] w-[20px] rounded-full bg-white shadow-md transform transition ease-in-out duration-200`}
+    />
+  </Switch>
+</div>
+
             </div>
           </div>
 
