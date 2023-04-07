@@ -20,14 +20,14 @@ const RepoCard = ({ repo }: RepoCardProps) => {
 
 
   return (
-<div className="w-96 h-96 m-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden p-5">
+
+<div className="w-96 h-96 m-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700 overflow-hidden p-5">
   {/* <a href={repo.html_url}>
     <img className="w-full h-1/2 object-cover" src={repo.image} alt="" />
   </a> */}
-  <div className="h-1/4">
     <Link href={repo.html_url}>
+  <div className="h-1/4">
       <p className="text-center text-3xl font-bold py-2 dark:text-gray-400">{repo.name}</p>
-    </Link>
   </div>
     <div className="h-1/2">
     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{repo.description}</p>
@@ -121,6 +121,7 @@ const RepoCard = ({ repo }: RepoCardProps) => {
             }
           })}
             </div>
+            </Link>
 </div>
 
   )

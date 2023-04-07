@@ -20,7 +20,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <div className="min-h-screen md:p-6 p-0 dark:bg-gray-900">
+      <div className="min-h-screen md:p-6 p-0 dark:bg-gray-950">
         <div className="flex justify-center h-1/3 flex-wrap">
           <ProfileCard />
         </div>

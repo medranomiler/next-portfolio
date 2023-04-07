@@ -76,7 +76,7 @@ const Home = () => {
   return (
     <>
     <MyModal isVisible={isVisible} isSuccess={success} message={message} onClose={() => setIsVisible(false)} />
-    <section className="h-screen bg-white dark:bg-gray-900">
+    <section className="h-screen bg-white dark:bg-gray-950">
   <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
       <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">Contact Me</h2>
       <form onSubmit={onSubmit}>
