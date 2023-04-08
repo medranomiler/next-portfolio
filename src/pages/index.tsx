@@ -29,7 +29,7 @@ const Portfolio = () => {
           <ProfileCard />
         </div>
         <div className="h-1/3">
-        <h2 className="lg:text-5xl md:text-4xl text-3xl font-bold dark:text-gray-400 p-4">Portfolio</h2>
+        <h2 className="lg:text-5xl md:text-4xl text-4xl font-bold dark:text-gray-400 p-4">Portfolio</h2>
         </div>
     <Tab.Group>
     <div className="flex justify-center w-full px-2.5 py-4 sm:px-0">
@@ -39,7 +39,7 @@ const Portfolio = () => {
             key={category}
             className={({ selected }) =>
               classNames(
-                'w-full rounded-lg py-2.5 px-4 text-sm font-medium leading-5 text-blue-700',
+                'w-full rounded-lg py-2.5 px-4 text-sm font-medium leading-5 text-violet-500',
                 'ring-white ring-opacity-60 ring-offset-0 ring-offset-white focus:outline-none focus:ring-0',
                 selected
                   ? 'bg-white shadow'

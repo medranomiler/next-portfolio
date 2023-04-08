@@ -16,17 +16,17 @@ const RepoCards = () =>{
       html_url: "https://github.com/medranomiler/tech-blog",
       image: "https://user-images.githubusercontent.com/67513942/220243736-6ac7feb4-4741-4443-b278-bb444d739c4a.png"
     },
-    {
-      name: "e-commerce-back-end",
-      description: "A back end e commerce application. This app uses Express.js for routing, and MySql and Sequelize for the data handling. ",
-      topics: ['expressjs', 'mysql'],
-      html_url: "https://github.com/medranomiler/e-commerce-back-end",
-      image: "https://flowbite.com/docs/images/blog/image-1.jpg"
-    },
+    // {
+    //   name: "store-manager",
+    //   description: "A back end e commerce application. This app uses Express.js for routing, and MySql and Sequelize for the data handling. ",
+    //   topics: ['expressjs', 'mysql', 'nodejs'],
+    //   html_url: "https://github.com/medranomiler/e-commerce-back-end",
+    //   image: "https://flowbite.com/docs/images/blog/image-1.jpg"
+    // },
     {
       name: "next-portfolio",
-      description: "This is a full stack developer portfolio website. This was built with Next.JS, MongoDB, and Chakra UI, and deployed to Vercel. Visit darrenmedrano.vercel.app",
-      topics: ['mongodb', 'nextjs', 'react', 'typescript', 'vercel'],
+      description: "This is a full stack developer portfolio website. This was built with Next.JS, MongoDB, and TailwindCSS, and deployed to Vercel. Visit darrenmedrano.vercel.app",
+      topics: ['mongodb', 'nextjs', 'typescript', 'tailwindcss'],
       html_url: "https://github.com/medranomiler/next-portfolio",
       image: "https://flowbite.com/docs/images/blog/image-1.jpg"
     },

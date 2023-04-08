@@ -20,18 +20,15 @@ const RepoCard = ({ repo }: RepoCardProps) => {
 
   return (
 
-<div className="w-96 h-96 m-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700 overflow-hidden p-5">
-  {/* <a href={repo.html_url}>
-    <img className="w-full h-1/2 object-cover" src={repo.image} alt="" />
-  </a> */}
+<div className="w-80 h-96 m-8 p-4 flex-shrink-0 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700">
     <Link href={repo.html_url}>
-  <div className="h-1/4">
-      <p className="text-center text-3xl font-bold py-2 dark:text-gray-400">{repo.name}</p>
+  <div className="h-1/4 flex items-center justify-center">
+      <p className="text-center py-2 text-4xl font-bold dark:text-gray-400">{repo.name}</p>
   </div>
-    <div className="h-1/2">
-    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{repo.description}</p>
+    <div className="h-1/2 flex items-center ">
+    <p className="m-4 font-light text-sm text-gray-700 dark:text-gray-400">{repo.description}</p>
     </div>
-    <div className=" h-1/4 flex justify-center flex-wrap dark:text-gray-400">
+    <div className="h-1/4 flex justify-center items-center flex-wrap dark:text-gray-400">
           {repo.topics.map((topic) => {
             if (topic === "chakra-ui") {
               return (
@@ -128,3 +125,4 @@ const RepoCard = ({ repo }: RepoCardProps) => {
 
 
 export default RepoCard;
+

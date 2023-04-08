@@ -1,9 +1,7 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition, Switch } from '@headlessui/react'
+import { Disclosure, Switch } from '@headlessui/react'
 import { useState } from 'react'
-import { Bars3Icon, BellIcon, XMarkIcon, MoonIcon, SunIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import Link from "next/link"
-import Image from "next/image"
 import useColorMode from '../../hooks/useColorMode'
 
 type NavItem = {
@@ -30,9 +28,7 @@ export const testUser = {
 
 export default function Navbar() {
   const [colorMode, setColorMode] = useColorMode();
-  const [enabled, setEnabled] = useState(false)
 
-  enabled ? colorMode === "dark" : colorMode === "light"
 
   return (
     <Disclosure as="nav" className="dark:bg-gray-900 bg:white border-b  border-gray-200 dark:border-gray-700">
@@ -54,18 +50,8 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <Link href="/">
-                    {/* <Image
-                    className="block h-8 w-auto lg:hidden dark:invert-[.3]"
-                    src="/"
-                    alt="Your Company"
-                  /> */}
                   </Link>
                   <Link href="/">
-                    {/* <Image
-                    className="hidden h-8 w-auto lg:block dark:invert-[.3]"
-                    src="/"
-                    alt="Your Company"
-                  /> */}
                   </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
@@ -92,7 +78,7 @@ export default function Navbar() {
                   onChange={() =>
                     setColorMode(colorMode === 'dark' ? 'light' : 'dark')
                   }
-                  className={`${colorMode === 'dark' ? 'bg-gray-700' : 'bg-gray-200'}
+                  className={`${colorMode === 'dark' ? 'bg-violet-500' : 'bg-gray-200'}
       relative inline-flex flex-shrink-0 h-[24px] w-[40px] border-2 border-transparent rounded-full cursor-pointer transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
                 >
                   <span className="sr-only">Switch between light and dark mode</span>
