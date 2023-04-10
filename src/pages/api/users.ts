@@ -7,10 +7,6 @@ export default async function handler(
   res: NextApiResponse<{ error: string }>
 ) {
   switch (req.method) {
-    case 'GET': {
-      return res.status(405).json({ error: 'Method not allowed' });
-      // return getUsers(req, res);
-    }
     case 'POST': {
       return addUser(req, res);
     }
