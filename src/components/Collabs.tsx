@@ -14,7 +14,7 @@ const collabs = [
         description: "JATE is a fully functional taco restaurant website. It demonstrates my ability to create a fully functional e-commerce site, with a stripe checkout integration.",
         topics: ["stripe", "graphql", "react", "heroku"],
         html_url: "https://github.com/harrisonboatman/Jate2.0",
-        image: "",
+        image: "https://user-images.githubusercontent.com/63430373/225468936-e29cd81f-1946-461d-b396-0498ced30b9d.png",
         deployedUrl: "https://jate-emporium.herokuapp.com/",
     },
     {

@@ -1,0 +1,8 @@
+{
+    "name": "devstr",
+    "description": "A work in progress Github / Nostr integrated developer platform. This was made in collaboration with Austin Kelsay, for the PlebLab SatsX Hackathon. devstr won the nostr category. ",
+    "topics": ["nextjs", "vercel", "chakra-ui"],
+    "html_url": "https://devstr.vercel.app",
+    "image": "https://i.ytimg.com/vi/C1VL-Bj6of0/maxresdefault.jpg",
+    "deployedUrl": "https://devstr.vercel.app/"
+}
