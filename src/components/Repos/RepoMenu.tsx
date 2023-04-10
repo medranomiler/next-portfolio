@@ -33,7 +33,7 @@ export default function RepoMenu({repoLink, deployedUrl, moreInfo}: MenuProps) {
         >
           <Menu.Items className="absolute right-0 top-4 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 ">
-            <Link href="/"><Menu.Item>
+            <Link href={`/repos/${moreInfo}`}><Menu.Item>
                 {({ active }) => (
                   <button
                     className={`${

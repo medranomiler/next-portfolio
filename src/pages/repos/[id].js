@@ -1,38 +1,29 @@
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+import Image from "next/image"
 import { FaReact, FaBootstrap, FaNode, FaCcStripe } from "react-icons/fa";
 import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql } from "react-icons/si";
-import Link from "next/link"
-import RepoMenu from "./RepoMenu";
 
 
-interface Repo {
-  name: string;
-  description: string;
-  topics: string[];
-  html_url: string;
-  image: string;
-  deployedUrl: string;
-}
 
-interface RepoCardProps {
-  repo: Repo;
-}
+export default function Repo({ repo }) {
 
-const RepoCard = ({ repo }: RepoCardProps) => {
+    const router = useRouter()
+    const { id } = router.query
+    console.log(repo.topics)
+    return (
+        <div className="">
+            <Head>
+                <title>{repo.id}</title>
+            </Head>
 
+            <main className="min-h-screen md:p-6 p-0 dark:bg-gray-950">
+                <h1 className="text-5xl font-bold dark:text-gray-400 p-4">
+                    {id}
+                </h1>
 
-  return (
-
-<div className="w-80 h-96 m-8 p-4 flex-shrink-0 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700">
-    <RepoMenu repoLink={repo.html_url} deployedUrl={repo.deployedUrl} moreInfo={repo.name} />
-
-  <div className="h-1/4 flex items-center justify-center">
-      <p className="text-center py-2 text-4xl font-bold dark:text-gray-400">{repo.name}</p>
-  </div>
-    <div className="h-1/2 flex items-start">
-    <p className="m-4 font-light text-sm text-gray-700 dark:text-gray-400">{repo.description}</p>
-    </div>
-    <div className="h-1/4 flex justify-center items-start flex-wrap dark:text-gray-400">
-          {repo.topics.map((topic) => {
+                <img src={repo.image} alt="repo image" width="400px" />
+                {repo.topics.map((topic) => {
             if (topic === "chakra-ui") {
               return (
                   <SiChakraui key={topic} className="mx-3 h-10 w-10"/>
@@ -119,12 +110,18 @@ const RepoCard = ({ repo }: RepoCardProps) => {
               );
             }
           })}
-            </div>
-</div>
 
-  )
-};
+            </main>
+        </div>
+    )
+}
 
 
-export default RepoCard;
+export async function getServerSideProps({ params }) {
+    const req = await fetch(`http://localhost:3000/${params.id}.json`);
+    const data = await req.json();
 
+    return {
+        props: { repo: data },
+    }
+}

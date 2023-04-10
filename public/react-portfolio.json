@@ -1,0 +1,8 @@
+{
+    "id": "react-portfolio",
+    "description": "This is a react project porfolio. This is a front end only React App. This app uses the useState hook to conditionally render content on the page. This website uses Tailwind CSS and Flowbite for the styling. ",
+    "topics": ["github", "react", "tailwindcss"],
+    "html_url": "https://github.com/medranomiler/react-portfolio",
+    "image": "https://user-images.githubusercontent.com/67513942/230475286-a957a7fc-7e48-4da2-957d-80132efc127d.png",
+    "deployedUrl": "https://medranomiler.github.io/react-portfolio/"
+}
