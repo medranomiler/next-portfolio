@@ -143,8 +143,8 @@ export default function Repo({ repo }) {
 
 
 export async function getServerSideProps({ params }) {
-  const url = "localhost:3000" || "darrenmedrano.vercel.app"
-    const req = await fetch(`http://${url}/${params.id}.json`);
+  const url = "darrenmedrano.vercel.app"
+    const req = await fetch(`https://${url}/${params.id}.json`);
     const data = await req.json();
 
     return {
