@@ -1,8 +1,0 @@
-{
-    "name": "tech-blog",
-    "description": "This is a tech blog website. Users can create an account, log in to an existing account,  add, edit, delete, and comment on blog posts. This website uses Handlebars.js, MySQL, Sequelize, and Express.js. This was deployed using Heroku.  ",
-    "topics": ["expressjs", "heroku", "mysql", "nodejs"],
-    "html_url": "https://github.com/medranomiler/tech-blog",
-    "image": "https://user-images.githubusercontent.com/67513942/220243736-6ac7feb4-4741-4443-b278-bb444d739c4a.png",
-    "deployedUrl": "https://the-tech-blog.herokuapp.com/" 
-  }

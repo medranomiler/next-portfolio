@@ -1,8 +1,0 @@
-{
-    "name": "chat-bot",
-    "description": "This is a chat bot that uses the Open AI gpt-3.5-turbo model, better known as the model for ChatGPT. It may be useful for times when ChatGPT is having server errors.",
-    "topics": ["bootstrap", "github", "js", "openai"],
-    "html_url": "https://github.com/medranomiler/chat-bot",
-    "image": "https://user-images.githubusercontent.com/67513942/228424352-154f0837-b5b1-413e-b9a9-642214d4a3ed.png",
-    "deployedUrl": "https://medranomiler.github.io/chat-bot/"   
-  }

@@ -1,8 +1,0 @@
-{
-    "name": "next-portfolio",
-    "description": "This is a full stack developer portfolio website. This was built with Next.JS, MongoDB, and TailwindCSS, and deployed to Vercel. Visit darrenmedrano.vercel.app",
-    "topics": ["mongodb", "nextjs", "typescript", "tailwindcss"],
-    "html_url": "https://github.com/medranomiler/next-portfolio",
-    "image": "https://flowbite.com/docs/images/blog/image-1.jpg",
-    "deployedUrl": "https://darrenmedrano.vercel.app/"
-  }
