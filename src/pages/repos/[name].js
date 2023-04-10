@@ -162,7 +162,7 @@ import { FaReact, FaBootstrap, FaNode, FaCcStripe, FaLink } from "react-icons/fa
 import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql } from "react-icons/si";
 
 
-const test = () => {
+const Test = () => {
   const [repoData, setrepoData ] = useState({})
   const [loading, setLoading] = useState(true)
 
@@ -320,4 +320,4 @@ const { name = ""} = router.query
     )
 }
 
-export default test;
+export default Test;
