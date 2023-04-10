@@ -1,6 +1,6 @@
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { HiDotsHorizontal } from "react-icons/hi"
 import { FaGithub, FaLink } from "react-icons/fa";
 import { ImInfo } from "react-icons/im"; 
 import Link from "next/link"
@@ -17,9 +17,7 @@ export default function RepoMenu({repoLink, deployedUrl, moreInfo}: MenuProps) {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="float-right">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 dark:text-gray-400">
-  <path  stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-</svg>
+          <HiDotsHorizontal className="h-6 w-6" />
           </Menu.Button>
         </div>
         <Transition

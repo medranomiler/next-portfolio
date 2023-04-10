@@ -13,20 +13,20 @@ export default function Repo({ repo }) {
     const { id } = router.query
 
     return (
-        <div className="">
+        <>
             <Head>
                 <title>{repo.id}</title>
             </Head>
 
             <main className="min-h-screen md:p-6 p-0 dark:bg-gray-950 p-4">
               <div className="flex flex-col items-center">
-                <h1 className="text-5xl font-bold dark:text-gray-400 p-4 rounded-xl border border-2 border-gray-800 dark:bg-gray-900 dark:border-gray-700 mb-2 text-center w-full">
+                <h1 className="text-5xl font-bold dark:text-gray-400 p-4 rounded-xl border shadow border-gray-200 dark:bg-gray-900 dark:border-gray-700 font-bold mb-2 text-center w-full">
                     {id}
                 </h1>
                 <div className="flex flex-col lg:flex-row lg:flex-wrap dark:text-gray-400 justify-center items-center">
-                  <img src={repo.image} alt="repo image" width="800px" className="rounded-xl border border-2 border-gray-800 dark:bg-gray-900 dark:border-gray-700"/>
+                  <img src={repo.image} alt="repo image" width="800px" className="rounded-xl border shadow border-gray-200 dark:bg-gray-900 dark:border-gray-700"/>
                   
-                <div className="flex flex-col p-4  max-w-lg">
+                <div className="flex flex-col py-4 max-w-lg md:p-4">
                   <div className="flex justify-center">
                 {repo.topics.map((topic) => {
             if (topic === "chakra-ui") {
@@ -116,8 +116,8 @@ export default function Repo({ repo }) {
             }
           })}
           </div>
-          <div className="my-4 rounded-xl border border-2 border-gray-800 dark:bg-gray-900 dark:border-gray-700 p-2">
-          <h2 className="text-4xl mb-2">Technologies</h2>
+          <div className="my-4 rounded-xl border shadow border-gray-200 dark:bg-gray-900 dark:border-gray-700 p-4">
+          <h2 className="text-4xl font-bold mb-2">Technologies</h2>
           <ul>
           {repo.topics.map((topic) => 
             (<li className="text-lg font-light mx-4" key={topic}>
@@ -125,19 +125,19 @@ export default function Repo({ repo }) {
             </li>))}
           </ul>
           </div>
-          <div className="my-4 rounded-xl border border-2 border-gray-800 p-2 dark:bg-gray-900 dark:border-gray-700">
-          <h2 className="text-4xl mb-2">Description</h2>
+          <div className="my-4 rounded-xl border shadow border-gray-200 p-4 dark:bg-gray-900 dark:border-gray-700">
+          <h2 className="text-4xl font-bold mb-2">Description</h2>
           <p className="text-lg font-light mx-4 flex flex-wrap">{repo.description}</p>
           </div>
-          <div className="my-4 rounded-xl border border-2 border-gray-800 dark:bg-gray-900 dark:border-gray-700 p-2">
-          <h2 className="text-4xl mb-2">Deployed URL</h2>
+          <div className="my-4 rounded-xl border shadow border-gray-200 dark:bg-gray-900 dark:border-gray-700 p-4">
+          <h2 className="text-4xl font-bold mb-2">Deployed URL</h2>
           <Link href={repo.deployedUrl} className="mx-4 flex cursor-pointer"><FaLink/><p className="text-md font-light ml-2 text-indigo-500">{repo.deployedUrl}</p></Link>
           </div>
           </div>
           </div>
           </div>
             </main>
-        </div>
+        </>
     )
 }
 
