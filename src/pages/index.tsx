@@ -1,6 +1,6 @@
 import ProfileCard from "../components/ProfileCard";
 import RepoCards from "../components/Repos/RepoCards";
-import Collabs from "../components/Collabs"
+import Collabs from "../components/Repos/Collabs"
 import dynamic from "next/dynamic"
 import { useMemo } from "react";
 import { Tab } from "@headlessui/react"

@@ -16,10 +16,9 @@ export default async function repoHandler(
        return getRepos(req, res)
     }
   }
-    case 'POST': {
-      // return addRepo(req, res);
-      return res.status(405).json({ error: 'Method not allowed' });
-    }
+    // case 'POST': {
+    //   return addRepo(req, res);
+    // }
     default: {
       return res.status(405).json({ error: 'Method not allowed' });
     }

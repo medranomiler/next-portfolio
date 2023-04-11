@@ -17,7 +17,7 @@ export default function RepoMenu({repoLink, deployedUrl, moreInfo}: MenuProps) {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="float-right">
-          <HiDotsHorizontal className="h-6 w-6" />
+          <HiDotsHorizontal className="h-6 w-6 dark:text-gray-400" />
           </Menu.Button>
         </div>
         <Transition

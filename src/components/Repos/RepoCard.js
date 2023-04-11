@@ -1,23 +1,9 @@
 import { FaReact, FaBootstrap, FaNode, FaCcStripe } from "react-icons/fa";
 import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql } from "react-icons/si";
-import Link from "next/link"
 import RepoMenu from "./RepoMenu";
 
 
-interface Repo {
-  name: string;
-  description: string;
-  topics: string[];
-  html_url: string;
-  image: string;
-  deployedUrl: string;
-}
-
-interface RepoCardProps {
-  repo: Repo;
-}
-
-const RepoCard = ({ repo }: RepoCardProps) => {
+const RepoCard = ({ repo }) => {
 
 
   return (
