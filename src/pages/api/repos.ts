@@ -17,7 +17,8 @@ export default async function repoHandler(
     }
   }
     case 'POST': {
-      return addRepo(req, res);
+      // return addRepo(req, res);
+      return res.status(405).json({ error: 'Method not allowed' });
     }
     default: {
       return res.status(405).json({ error: 'Method not allowed' });
@@ -59,20 +60,20 @@ try {
   }
 }
 
-async function addRepo(
-    req: NextApiRequest,
-    res: NextApiResponse | { error: string }
-  ) {
-    try {
-      await connectMongo();
+// async function addRepo(
+//     req: NextApiRequest,
+//     res: NextApiResponse | { error: string }
+//   ) {
+//     try {
+//       await connectMongo();
   
-      const repo = await Repo.create(req.body);
+//       const repo = await Repo.create(req.body);
   
-      (res as NextApiResponse).status(201).json(repo);
-    } catch (error) {
-      (res as NextApiResponse).status(500).json({ error: (error as Error).message });
-    }
-  }
+//       (res as NextApiResponse).status(201).json(repo);
+//     } catch (error) {
+//       (res as NextApiResponse).status(500).json({ error: (error as Error).message });
+//     }
+//   }
 
   async function getRepoByName(
     req: NextApiRequest,
