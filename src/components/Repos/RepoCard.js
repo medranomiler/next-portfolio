@@ -12,7 +12,6 @@ const RepoCard = ({ repo }) => {
 
 <div className="w-80 h-96 m-8 p-4 flex-shrink-0 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-700">
     <RepoMenu repoLink={repo.html_url} deployedUrl={repo.deployedUrl} moreInfo={repo.name} />
-<div className="h-full w-full cursor-pointer" >
   <div className="h-1/4 flex items-center justify-center ">
       <p className="text-center py-2 text-4xl font-bold dark:text-gray-400">{repo.name}</p>
   </div>
@@ -107,7 +106,6 @@ const RepoCard = ({ repo }) => {
               );
             }
           })}
-            </div>
             </div>
 </div>
 </>

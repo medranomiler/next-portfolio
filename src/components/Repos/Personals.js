@@ -10,25 +10,27 @@ const Personals = () => {
   return (
     <>
       {loading ? (
-<>
-<div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200">
-    <span class="sr-only">Loading...</span>
-</div>
-<div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200">
-    <span class="sr-only">Loading...</span>
-</div>
-<div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200">
-    <span class="sr-only">Loading...</span>
-</div>
-<div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200">
-    <span class="sr-only">Loading...</span>
-</div>
-</>
-      ) : (<>
-        {(personalRepos.map((repo) => (
-          <RepoCard key={repo.name} repo={repo} />
-        )))}
-      </>)
+        <>
+          <div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </>
+      ) : (
+        <>
+          {(personalRepos.map((repo) => (
+            <RepoCard key={repo.name} repo={repo} />
+          )))}
+        </>
+      )
       }
     </>
   )
