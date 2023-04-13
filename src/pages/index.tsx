@@ -1,5 +1,5 @@
 import ProfileCard from "../components/ProfileCard";
-import RepoCards from "../components/Repos/RepoCards";
+import Personals from "../components/Repos/Personals";
 import Collabs from "../components/Repos/Collabs"
 import dynamic from "next/dynamic"
 import { useMemo } from "react";
@@ -8,8 +8,8 @@ import { Tab } from "@headlessui/react"
 
 const Portfolio = () => {
 
-  const repoCards = useMemo(() => {
-    return <RepoCards />;
+  const personals = useMemo(() => {
+    return <Personals />;
   }, []);
   const collabs = useMemo(() => {
     return <Collabs />;
@@ -24,12 +24,12 @@ const Portfolio = () => {
 
   return (
     <>
-      <div className="min-h-screen md:p-6 p-0 dark:bg-gray-950">
+      <div className="min-h-screen md:p-6 p-0 bg-slate-50 dark:bg-gray-950">
         <div className="flex justify-center h-1/3 flex-wrap">
           <ProfileCard />
         </div>
         <div className="h-1/3">
-        <h2 className="lg:text-5xl md:text-4xl text-4xl font-bold dark:text-gray-400 p-4">Portfolio</h2>
+        <h2 className="lg:text-5xl md:text-4xl text-4xl font-bold dark:text-gray-400 text-center md:w-2/3 md:flex md:justify-center">Portfolio</h2>
         </div>
     <Tab.Group>
     <div className="flex justify-center w-full px-2.5 py-4 sm:px-0">
@@ -54,7 +54,7 @@ const Portfolio = () => {
       </div>
       <Tab.Panels className="mt-2">
           <Tab.Panel className="flex flex-wrap justify-center">
-            {repoCards}
+            {personals}
           </Tab.Panel>
           <Tab.Panel className="flex flex-wrap justify-center">
             {collabs}

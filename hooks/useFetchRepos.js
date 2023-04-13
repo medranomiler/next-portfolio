@@ -5,9 +5,11 @@ import { useState, useEffect } from "react"
 
 function useFetchRepos(){
     const [repoData, setrepoData ] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         async function fetchReposFromDb(){
+          // const url = `http://localhost:3000/api/repos`
         const url = "https://darrenmedrano.vercel.app/api/repos"
         const res = await fetch(url)
         const data = await res.json()
@@ -21,13 +23,14 @@ function useFetchRepos(){
           name: item.name,
           topics: item.topics
         }))
-        
+        setLoading(false)
         setrepoData(repositoryData)
+
     }
     fetchReposFromDb()
   }, [])
 
-  return [repoData]
+  return [repoData, loading]
 }
 
 export default useFetchRepos

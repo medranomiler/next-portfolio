@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/ToastProvider.js", "hooks/useFetchRepos.js", "src/components/Repos/RepoCards.js", "src/components/Repos/RepoCard.js", "src/components/Repos/Collabs.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/ToastProvider.js", "hooks/useFetchRepos.js", "src/components/Repos/Personals.js", "src/components/Repos/RepoCard.js", "src/components/Repos/Collabs.js"],
   "exclude": ["node_modules"]
 }
