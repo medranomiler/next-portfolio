@@ -1,5 +1,5 @@
 import { FaReact, FaBootstrap, FaNode, FaCcStripe } from "react-icons/fa";
-import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql, SiGodaddy } from "react-icons/si";
+import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql, SiGodaddy, SiAdobeillustrator } from "react-icons/si";
 import RepoMenu from "./RepoMenu";
 
 
@@ -108,6 +108,11 @@ const RepoCard = ({ repo }) => {
             if (topic === "godaddy") {
               return (
                   <SiGodaddy key={topic} className="mx-3 h-10 w-10"/>
+              );
+            }
+            if (topic === "adobeillustrator") {
+              return (
+                  <SiAdobeillustrator key={topic} className="mx-3 h-10 w-10"/>
               );
             }
           })}
