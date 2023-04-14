@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
 import { FaReact, FaBootstrap, FaNode, FaCcStripe, FaLink } from "react-icons/fa";
-import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql } from "react-icons/si";
+import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql, SiGodaddy } from "react-icons/si";
 
 
 
@@ -142,6 +142,11 @@ return (
 <FaCcStripe key={topic} className="mx-3 h-14 w-14 md:h-20 md:w-20"/>
 );
 }
+if (topic === "godaddy") {
+  return (
+  <SiGodaddy key={topic} className="mx-3 h-14 w-14 md:h-20 md:w-20"/>
+  );
+  }
 })}
 </div>
           <div className="my-4 rounded-xl border shadow border-gray-200 dark:bg-gray-900 dark:border-gray-700 p-4">
@@ -245,6 +250,12 @@ return (
             if (topic === "stripe") {
               return (
                 <li key={topic} className="font-light">Stripe</li>
+
+              );
+            }
+            if (topic === "godaddy") {
+              return (
+                <li key={topic} className="font-light">GoDaddy</li>
 
               );
             }
