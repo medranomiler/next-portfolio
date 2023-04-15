@@ -59,14 +59,14 @@ const Test = () => {
               <div className="flex flex-col py-4 max-w-lg md:p-4">
                 <div className="flex justify-center my-4">
                   {repoData.topics && repoData.topics.map((topic) => {
-                    return <TopicIcons topic={topic} />
+                    return <TopicIcons key={topic} topic={topic} />
                   })}
                 </div>
                 <div className="my-4 rounded-xl border shadow border-gray-200 dark:bg-gray-900 dark:border-gray-700 p-4">
                   <h2 className="text-4xl font-bold mb-2">Technologies</h2>
                   <ul>
                     {repoData.topics && repoData.topics.map((topic) => {
-                     return <TopicNames topic={topic} />
+                     return <TopicNames key={topic} topic={topic} />
                     })}
                   </ul>
                 </div>

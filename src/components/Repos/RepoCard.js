@@ -19,7 +19,7 @@ const RepoCard = ({ repo }) => {
     </div>
     <div className="h-1/4 flex justify-center items-start flex-wrap dark:text-gray-400">
           {repo.topics.map((topic) => {
-            return <TopicIcons topic={topic} />
+            return <TopicIcons key={topic} topic={topic} />
           })}
             </div>
 </div>
