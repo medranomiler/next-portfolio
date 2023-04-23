@@ -4,7 +4,12 @@ import Collabs from "../components/Repos/Collabs"
 import dynamic from "next/dynamic"
 import { useMemo } from "react";
 import { Tab } from "@headlessui/react"
+import { Prompt } from "next/font/google"
 
+const prompt = Prompt({
+  weight: ['400' , '700'],
+  subsets: [ 'latin']
+})
 
 const Portfolio = () => {
 
@@ -29,7 +34,7 @@ const Portfolio = () => {
           <ProfileCard />
         </div>
         <div className="h-1/3">
-        <h2 className="lg:text-5xl md:text-4xl text-4xl font-bold dark:text-gray-400 text-center md:w-2/3 md:flex md:justify-center">Portfolio</h2>
+        <h2 className={`lg:text-5xl md:text-4xl text-4xl font-bold dark:text-gray-400 text-center md:w-2/3 md:flex md:justify-center`}>Portfolio</h2>
         </div>
     <Tab.Group>
     <div className="flex justify-center w-full px-2.5 py-4 sm:px-0">

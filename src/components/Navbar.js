@@ -1,34 +1,35 @@
 import { Disclosure, Switch } from '@headlessui/react'
-import { useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import Link from "next/link"
 import useColorMode from '../../hooks/useColorMode'
-
-type NavItem = {
-  name: string;
-  href: string;
-  current: boolean;
-};
-
-const navigation: NavItem[] = [
-  { name: 'Home', href: '/', current: false },
-  { name: 'Contact', href: '/contact', current: false }
-];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export const testUser = {
-  name: "darren",
-  balance: "1.00000000",
-  userAddress: "xyzAbc123",
-  photo: "https://media.licdn.com/dms/image/D5603AQEkZf1CFGufsg/profile-displayphoto-shrink_400_400/0/1678316144656?e=1686182400&v=beta&t=PLUvlQmzZxfuT6Leu1JZdo8cwupI7nuc3wVZDvJRD4o"
-}
+import { AuthContext } from './AuthContext'
 
 export default function Navbar() {
   const [colorMode, setColorMode] = useColorMode();
+  const { loggedIn, handleLogout } = useContext(AuthContext);
 
+  const [navigation, setNavigation] = useState([
+    { name: 'Home', href: '/', current: false },
+    { name: 'Contact', href: '/contact', current: false }, 
+    { name: 'Login', href: '/login', current: false},
+  ]);
+
+  useEffect(() => {
+    if (loggedIn) {
+      setNavigation(navigation => [
+        ...navigation,
+        { name: 'Create New Repo', href: '/repos/new', current: false },
+        { name: 'Logout', href: '', current: false, onClick: handleLogout },
+      ]);
+    } else {
+      setNavigation(navigation => navigation.slice(0, 3));
+    }
+  }, [loggedIn]);
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
 
   return (
     <Disclosure as="nav" className="dark:bg-gray-900 bg:white border-b  border-gray-200 dark:border-gray-700">
@@ -60,6 +61,7 @@ export default function Navbar() {
                       <Link
                         key={item.name}
                         href={item.href}
+                        onClick={item.onClick}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'dark:text-slate-50 hover:bg-slate-100 dark:hover:bg-gray-900 dark:hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
@@ -72,6 +74,7 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
+
               <div className="relative inline-flex items-center mr-2.5">
                 <Switch
                   checked={colorMode === 'dark'}
