@@ -19,8 +19,8 @@ const Test = () => {
 
   useEffect(() => {
     async function parseRepo() {
-      const url = `http://localhost:3000/api/repos?name=${name}`
-      // const url = `https://darrenmedrano.vercel.app/api/repos?name=${name}`
+      // const url = `http://localhost:3000/api/repos?name=${name}`
+      const url = `https://darrenmedrano.vercel.app/api/repos?name=${name}`
       const res = await fetch(url)
       const data = await res.json()
 

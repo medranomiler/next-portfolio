@@ -9,8 +9,8 @@ function useFetchRepos(){
 
     useEffect(() => {
         async function fetchReposFromDb(){
-          const url = `http://localhost:3000/api/repos`
-        // const url = "https://darrenmedrano.vercel.app/api/repos"
+          // const url = `http://localhost:3000/api/repos`
+        const url = "https://darrenmedrano.vercel.app/api/repos"
         const res = await fetch(url)
         const data = await res.json()
 
