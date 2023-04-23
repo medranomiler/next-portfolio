@@ -17,13 +17,18 @@ export default function Navbar() {
 
   useEffect(() => {
     if (loggedIn) {
-      setNavigation(navigation => [
-        ...navigation,
+      setNavigation([
+        { name: 'Home', href: '/', current: false },
+        { name: 'Contact', href: '/contact', current: false }, 
         { name: 'Create New Repo', href: '/repos/new', current: false },
         { name: 'Logout', href: '', current: false, onClick: handleLogout },
       ]);
     } else {
-      setNavigation(navigation => navigation.slice(0, 3));
+      setNavigation([
+        { name: 'Home', href: '/', current: false },
+        { name: 'Contact', href: '/contact', current: false }, 
+        { name: 'Login', href: '/login', current: false},
+      ]);
     }
   }, [loggedIn]);
 
