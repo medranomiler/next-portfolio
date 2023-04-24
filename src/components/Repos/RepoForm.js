@@ -38,7 +38,7 @@ const RepoForm = () =>{
         const response = await fetch('/api/repos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name: selectedRepo, description, topics: selectedTopics , html_url, image, deployedUrl }),
+          body: JSON.stringify({ name, description, topics: selectedTopics , html_url, image, deployedUrl }),
         });
         const { error } = await response.json()
         
