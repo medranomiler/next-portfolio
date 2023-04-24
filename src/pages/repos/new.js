@@ -4,6 +4,7 @@ import Router from "next/router"
 import Link from "next/link"
 import { AuthContext } from "../../components/AuthContext"
 
+const topicsArray = ["vercel", "nextjs", "github", "mongodb", "tailwindcss", "mysql", "expressjs", "nodejs", "chakra-ui", "heroku", "react", "openai", "typescript", "js", "bootstrap", "graphql", "stripe", "godaddy", "adobeillustrator"]
 
 const NewThought = () => {
     const [name, setName] = useState('');
@@ -16,13 +17,23 @@ const NewThought = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const { loggedIn } = useContext(AuthContext);
 
+    const handleTopicChange = (event) => {
+      const { value, checked } = event.target;
+      if (checked) {
+        setTopics((prevTopics) => [...prevTopics, value]);
+      } else {
+        setTopics((prevTopics) => prevTopics.filter((topic) => topic !== value));
+      }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const topicsArray = topics.split(",").map((topic) => topic.trim());
+        const selectedTopics = topics.filter((topic) => topicsArray.includes(topic));
+        //  const topicsArray = topics.split(",").map((topic) => topic.trim());
         const response = await fetch('/api/repos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, description, topics: topicsArray , html_url, image, deployedUrl }),
+          body: JSON.stringify({ name, description, topics: selectedTopics , html_url, image, deployedUrl }),
         });
         const { error } = await response.json()
         
@@ -38,7 +49,7 @@ const NewThought = () => {
 
 
   return (
-    <div className="max-w-screen h-screen py-36 p-4 relative flex flex-col items-center bg-slate-50 dark:bg-gray-950">
+    <div className="max-w-screen h-screen py-12 p-4 relative flex flex-col items-center bg-slate-50 dark:bg-gray-950">
       {loggedIn? (<>
     <h1 className="text-4xl text-gray-900 dark:text-white">Create New Repo</h1>
         <form className="p-4 relative flex flex-col items-center md:w-1/3 lg:w-1/2 w-full"
@@ -53,11 +64,30 @@ const NewThought = () => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             />
-            <input type="text" 
+            {/* <input type="text" 
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-violet-500 focus:border-violet-500 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500"  placeholder="topics"
             value={topics}
             onChange={(e) => setTopics(e.target.value)}
+            /> */}
+            <div className="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-violet-500 focus:border-violet-500 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500">
+            <label className="text-gray-500">top four technologies</label>
+            <div className="w-full flex flex-wrap">
+      {topicsArray.map((topic) => (
+          <div key={topic} className="p-2">
+            <input
+              type="checkbox"
+              id={topic}
+              name={topic}
+              value={topic}
+              checked={topics.includes(topic)}
+              onChange={handleTopicChange}
+              className="mr-2 w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
+            <label htmlFor={topic}>{topic}</label>
+          </div>
+        ))}
+        </div>
+        </div>
             <input type="text" 
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-violet-500 focus:border-violet-500 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500" placeholder="repo url"
             value={html_url}

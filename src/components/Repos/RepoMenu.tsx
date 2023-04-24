@@ -1,9 +1,12 @@
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, useContext, useState } from 'react'
 import { HiDotsHorizontal } from "react-icons/hi"
 import { FaGithub, FaLink } from "react-icons/fa";
 import { ImInfo } from "react-icons/im"; 
+import { BsTrash3Fill } from "react-icons/bs"
 import Link from "next/link"
+import { AuthContext } from '../AuthContext'
+import Router from "next/router"
 
 type MenuProps = {
   repoLink: string;
@@ -11,7 +14,28 @@ type MenuProps = {
   moreInfo: string;
 }
 
+// moreInfo is a the repo name
+
 export default function RepoMenu({repoLink, deployedUrl, moreInfo}: MenuProps) {
+  const { loggedIn } = useContext(AuthContext);
+
+  const deleteRepo = async (e: any) => {
+    e.preventDefault();
+    const response = await fetch('/api/repos', {
+      method: 'DELETE',
+      body: JSON.stringify({ moreInfo }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const { message, error } = await response.json()
+    if (response.ok) {
+      alert(message)
+    }else{
+      alert(error)
+    }
+  };
+
   return (
     <div className="text-right">
       <Menu as="div" className="relative inline-block text-left">
@@ -99,6 +123,29 @@ export default function RepoMenu({repoLink, deployedUrl, moreInfo}: MenuProps) {
                   </button>
                 )}
               </Menu.Item></Link>
+              {loggedIn && <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    onClick={deleteRepo}
+                  >
+                    {active ? (
+                      <BsTrash3Fill
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <BsTrash3Fill
+                        className="mr-2 h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    )}
+                    Delete Repo
+                  </button>
+                )}
+              </Menu.Item>}
               </div>
           </Menu.Items>
         </Transition>

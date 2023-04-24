@@ -107,6 +107,7 @@ export default function Navbar() {
                   key={item.name}
                   as="a"
                   href={item.href}
+                  onClick={item.onClick}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-900 dark:text-gray-400 hover:bg-gray-800 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'

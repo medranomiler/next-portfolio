@@ -19,6 +19,10 @@ export default async function repoHandler(
     case 'POST': {
       return addRepo(req, res);
     }
+    case 'DELETE': {
+      console.log(req.body)
+      return deleteRepo(req, res);
+    }
     default: {
       return res.status(405).json({ error: 'Method not allowed' });
     }
@@ -88,6 +92,25 @@ async function addRepo(
       }
   
       (res as NextApiResponse).status(200).json(repo);
+    } catch (error) {
+      (res as NextApiResponse).status(500).json({ error: (error as Error).message });
+    }
+  }
+
+  async function deleteRepo(
+    req: NextApiRequest,
+    res: NextApiResponse | { error: string } | { message: string }
+  ) {
+    try {
+      await connectMongo();
+  
+      const repo = await Repo.findOneAndDelete({ name: req.body.moreInfo });
+      
+      if (!repo) {
+        return (res as NextApiResponse).status(404).json({ error: 'Repo not found' });
+      }
+  
+      (res as NextApiResponse).status(200).json({ message: "Repo deleted. Reload the page."});
     } catch (error) {
       (res as NextApiResponse).status(500).json({ error: (error as Error).message });
     }
