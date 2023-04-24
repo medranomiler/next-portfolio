@@ -19,6 +19,10 @@ export default async function repoHandler(
     case 'POST': {
       return addRepo(req, res);
     }
+    case 'PUT': {
+      return updateRepo(req, res);
+    }
+
     case 'DELETE': {
       console.log(req.body)
       return deleteRepo(req, res);
@@ -88,7 +92,7 @@ async function addRepo(
       const repo = await Repo.findOne({ name: req.query.name });
   
       if (!repo) {
-        return (res as NextApiResponse).status(404).json({ error: 'Repo not found' });
+        return (res as NextApiResponse).status(404).json({ error: `Project named ${req.query.name} not found` });
       }
   
       (res as NextApiResponse).status(200).json(repo);
@@ -103,14 +107,39 @@ async function addRepo(
   ) {
     try {
       await connectMongo();
-  
-      const repo = await Repo.findOneAndDelete({ name: req.body.moreInfo });
+      console.log(req.body.name)
+      const repo = await Repo.findOneAndDelete({ name: req.body.name });
       
       if (!repo) {
-        return (res as NextApiResponse).status(404).json({ error: 'Repo not found' });
+        return (res as NextApiResponse).status(404).json({ error: `Project named ${req.body.name} not found` });
       }
   
-      (res as NextApiResponse).status(200).json({ message: "Repo deleted. Reload the page."});
+      (res as NextApiResponse).status(200).json({ message: `${req.body.name} deleted.`});
+    } catch (error) {
+      (res as NextApiResponse).status(500).json({ error: (error as Error).message });
+    }
+  }
+
+
+  
+  async function updateRepo(
+    req: NextApiRequest,
+    res: NextApiResponse | { error: string } | { message: string }
+  ) {
+    try {
+      await connectMongo();
+      
+      const repo = await Repo.findOneAndUpdate(
+        { name: req.body.name },
+        { $set: req.body },
+        { new: true }
+      );
+  
+      if (!repo) {
+        return (res as NextApiResponse).status(404).json({ error: `Project named ${req.body.name} not found` });
+      }
+  
+      (res as NextApiResponse).status(200).json({message: `${req.body.name} updated.`});
     } catch (error) {
       (res as NextApiResponse).status(500).json({ error: (error as Error).message });
     }

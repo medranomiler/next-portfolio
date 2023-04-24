@@ -26,7 +26,7 @@ const Login = () => {
   
         // Call handleLogin with token from response
         handleLogin(token);
-        Router.push("/repos/new")
+        Router.push("/")
       } else {
         const { message } = await response.json();
         // Handle error

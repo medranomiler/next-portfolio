@@ -1,18 +1,20 @@
 import React from 'react'
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
 import TopicIcons from "../../components/Repos/TopicIcons"
 import TopicNames from "../../components/Repos/TopicNames"
 import { FaLink } from "react-icons/fa";
+import { AuthContext } from "../../components/AuthContext"
 
 
 
 
-const Test = () => {
+const Project = () => {
   const [repoData, setrepoData] = useState({})
   const [loading, setLoading] = useState(true)
+  const { loggedIn } = useContext(AuthContext);
 
   const router = useRouter()
   const { name = "" } = router.query
@@ -82,6 +84,14 @@ const Test = () => {
                   <h2 className="text-4xl font-bold mb-2">Repository URL</h2>
                   {repoData.html_url && (<Link href={repoData.html_url} className="mx-4 flex cursor-pointer"><FaLink /><p className="text-md font-light ml-2 text-indigo-500">{repoData.html_url}</p></Link>)}
                 </div>
+                {loggedIn && (<>
+                <div className="my-4 rounded-xl border shadow border-gray-200 dark:bg-gray-900 dark:border-gray-700 p-4">
+                  <h2 className="text-4xl font-bold mb-2">Actions</h2>
+                  <div className="flex justify-center space-x-4">
+                  <button className="cursor-pointer p-2 bg-yellow-400 rounded text-white"><Link href="/projects/update">Update</Link></button>
+                  <button className="cursor-pointer p-2 bg-red-600 rounded text-white"><Link href="/projects/delete">Delete</Link></button>
+                  </div>
+                </div> </>)}
               </div>
             </div>
           </div>
@@ -90,4 +100,4 @@ const Test = () => {
   )
 }
 
-export default Test;
+export default Project;

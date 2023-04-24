@@ -20,7 +20,7 @@ export default function Navbar() {
       setNavigation([
         { name: 'Home', href: '/', current: false },
         { name: 'Contact', href: '/contact', current: false }, 
-        { name: 'Create New Repo', href: '/repos/new', current: false },
+        { name: 'Manage Projects', href: '/projects', current: false },
         { name: 'Logout', href: '', current: false, onClick: handleLogout },
       ]);
     } else {
