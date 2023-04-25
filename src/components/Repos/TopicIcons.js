@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react'
 import { FaReact, FaBootstrap, FaNode, FaCcStripe } from "react-icons/fa";
-import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql, SiGodaddy, SiAdobeillustrator } from "react-icons/si";
+import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql, SiGodaddy, SiAdobeillustrator, SiGoogledomains } from "react-icons/si";
 
 const TopicIcons = ({topic}) => {
     const [topicIcon, setTopicIcons] = useState(null)
@@ -84,6 +84,9 @@ const TopicIcons = ({topic}) => {
       }
       else if (topic === "adobeillustrator") {
             setTopicIcons(<SiAdobeillustrator key={topic} className="mx-3 h-10 w-10"/>)
+      }
+      else if (topic === "googledomains") {
+            setTopicIcons(<SiGoogledomains key={topic} className="mx-3 h-10 w-10"/>)
       }
     }, [topic])
 

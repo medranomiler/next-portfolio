@@ -99,6 +99,11 @@ const Topics = ({topic}) => {
               setTopicNames(<li key={topic} className="font-light">Adobe Illustrator</li>)
         
           }
+          else if (topic === "googledomains") {
+
+            setTopicNames(<li key={topic} className="font-light">Google Domains</li>)
+      
+        }
         }, [topic])
 
 return(

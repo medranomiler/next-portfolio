@@ -4,7 +4,7 @@ import useFetchRepos from "../../../hooks/useFetchRepos"
 import { RxUpdate } from "react-icons/rx" 
 import { MdPublish } from "react-icons/md"
 
-const topicsArray = ["vercel", "nextjs", "github", "mongodb", "tailwindcss", "mysql", "expressjs", "nodejs", "chakra-ui", "heroku", "react", "openai", "typescript", "js", "bootstrap", "graphql", "stripe", "godaddy", "adobeillustrator"]
+const topicsArray = ["vercel", "nextjs", "github", "mongodb", "tailwindcss", "mysql", "expressjs", "nodejs", "chakra-ui", "heroku", "react", "openai", "typescript", "js", "bootstrap", "graphql", "stripe", "godaddy", "adobeillustrator", "googledomains"]
 
 const RepoForm = () =>{
     const [name, setName] = useState('');
