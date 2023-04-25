@@ -1,7 +1,19 @@
-import { useEffect } from "react";
+import React, { createContext, useEffect } from "react";
 import useLocalStorage from "./useLocalStorage";
 
-const useColorMode = (): [string, (value: string) => void] => {
+const ColorModeContext = createContext<{
+  colorMode: string;
+  setColorMode: (value: string) => void;
+}>({
+  colorMode: "light",
+  setColorMode: () => {},
+});
+
+interface ColorModeProviderProps{
+  children: React.ReactNode;
+}
+
+export const ColorModeProvider: React.FC<ColorModeProviderProps> = ({ children }) => {
   const [colorMode, setColorMode] = useLocalStorage("color-theme", "light");
 
   useEffect(() => {
@@ -13,7 +25,12 @@ const useColorMode = (): [string, (value: string) => void] => {
       : bodyClass.remove(className);
   }, [colorMode]);
 
-  return [colorMode, setColorMode];
+  return (
+    <ColorModeContext.Provider value={{ colorMode, setColorMode }}>
+      {children}
+    </ColorModeContext.Provider>
+  );
 };
 
-export default useColorMode;
+export default ColorModeContext;
+

@@ -2,11 +2,11 @@ import { Disclosure, Switch } from '@headlessui/react'
 import { useContext, useState, useEffect } from 'react'
 import { Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 import Link from "next/link"
-import useColorMode from '../../hooks/useColorMode'
+import ColorModeContext from '../../hooks/useColorMode'
 import { AuthContext } from './AuthContext'
 
 export default function Navbar() {
-  const [colorMode, setColorMode] = useColorMode();
+  const { colorMode, setColorMode } = useContext(ColorModeContext);
   const { loggedIn, handleLogout } = useContext(AuthContext);
 
   const [navigation, setNavigation] = useState([

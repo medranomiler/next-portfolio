@@ -1,6 +1,7 @@
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import { AuthProvider } from "./AuthContext";
+import { ColorModeProvider } from "../../hooks/useColorMode"
 import Head from "next/head"
 
 interface LayoutProps {
@@ -10,11 +11,13 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
+      <ColorModeProvider>
       <AuthProvider>
       <Navbar />
       <main>{children}</main>
       <Footer />
       </AuthProvider>
+      </ColorModeProvider>
     </>
   );
 };

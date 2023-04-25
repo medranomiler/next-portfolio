@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import DeleteRepoForm from "../../components/Repos/DeleteRepoForm"
-import Link from "next/link"
 import { AuthContext } from "../../components/AuthContext"
+import LoginWall from '../../components/LoginWall'
 
 const Delete = () => {
      const { loggedIn } = useContext(AuthContext);
@@ -12,10 +12,7 @@ const Delete = () => {
       {loggedIn? (
         <DeleteRepoForm />
       ) : (
-      <>
-        <h1 className="text-2xl">Login to continue </h1>
-        <p className="text-blue-400 hover:text-blue-700"><Link href="/login">go to login page</Link></p>
-      </>
+      <LoginWall />
         )}
     </div>
   )
