@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import useFetchRepos from "../../../hooks/useFetchRepos"
+import { BsTrash3Fill } from "react-icons/bs"
 
 const DeleteRepoForm = () => {
     const [ repoData, loading ] = useFetchRepos()
@@ -36,7 +37,10 @@ const DeleteRepoForm = () => {
           <option key={repo.name}>{repo.name}</option>
         )))}
     </select>
-    <button type="submit" className="w-1/2 cursor-pointer p-2 bg-red-600 rounded text-white">Delete</button>
+    <button type="submit" className="cursor-pointer bg-red-600 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center  mr-2 mb-2"><BsTrash3Fill
+                        className="w-4 h-4 mr-2 -ml-1"
+                        aria-hidden="true"
+                      />Delete</button>
     </form>
   </>)
 }
