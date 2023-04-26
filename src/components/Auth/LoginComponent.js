@@ -1,4 +1,5 @@
 import Router from "next/router"
+import { useRouter } from 'next/router'
 import React, { useState, useContext } from 'react';
 import { AuthContext } from "./AuthContext"
 import { FiLogIn } from "react-icons/fi"
@@ -9,6 +10,7 @@ const LoginComponent = () => {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const { loggedIn, handleLogin, handleLogout } = useContext(AuthContext);
+    const router = useRouter()
 
 
     const handleFormSubmit = async (event) => {
@@ -26,7 +28,7 @@ const LoginComponent = () => {
   
         // Call handleLogin with token from response
         handleLogin(token);
-        // Router.push("/")
+        router.pathname === "/login" && Router.push("/")
       } else {
         const { message } = await response.json();
         // Handle error
