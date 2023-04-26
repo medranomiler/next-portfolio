@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import Link from "next/link"
-import { AuthContext } from "../../components/AuthContext"
-import LoginWall from '../../components/LoginWall'
+import { AuthContext } from "../../components/Auth/AuthContext"
+import LoginWall from '../../components/Auth/LoginWall'
 
 
 const ManageRepos = () => {

@@ -1,6 +1,6 @@
 import Navbar from "./Navbar"
 import Footer from "./Footer"
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider } from "./Auth/AuthContext";
 import { ColorModeProvider } from "../../hooks/useColorMode"
 import Head from "next/head"
 

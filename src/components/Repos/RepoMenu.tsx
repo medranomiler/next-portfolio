@@ -5,7 +5,7 @@ import { FaGithub, FaLink } from "react-icons/fa";
 import { ImInfo } from "react-icons/im"; 
 import { BsTrash3Fill } from "react-icons/bs"
 import Link from "next/link"
-import { AuthContext } from '../AuthContext'
+import { AuthContext } from '../Auth/AuthContext'
 import Router from "next/router"
 
 type MenuProps = {

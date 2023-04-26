@@ -6,7 +6,7 @@ import Link from 'next/link'
 import TopicIcons from "../../components/Repos/TopicIcons"
 import TopicNames from "../../components/Repos/TopicNames"
 import { FaLink } from "react-icons/fa";
-import { AuthContext } from "../../components/AuthContext"
+import { AuthContext } from "../../components/Auth/AuthContext"
 
 
 

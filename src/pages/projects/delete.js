@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import DeleteRepoForm from "../../components/Repos/DeleteRepoForm"
-import { AuthContext } from "../../components/AuthContext"
-import LoginWall from '../../components/LoginWall'
+import { AuthContext } from "../../components/Auth/AuthContext"
+import LoginWall from '../../components/Auth/LoginWall'
 
 const Delete = () => {
      const { loggedIn } = useContext(AuthContext);

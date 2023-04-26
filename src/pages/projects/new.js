@@ -1,8 +1,8 @@
 import React from 'react'
 import { useContext } from "react"
 import RepoForm from "../../components/Repos/RepoForm"
-import { AuthContext } from "../../components/AuthContext"
-import LoginWall from '../../components/LoginWall'
+import { AuthContext } from "../../components/Auth/AuthContext"
+import LoginWall from '../../components/Auth/LoginWall'
 
 const NewRepo = () => {
     const { loggedIn } = useContext(AuthContext);
