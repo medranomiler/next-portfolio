@@ -9,8 +9,6 @@ import { FaLink } from "react-icons/fa";
 import { AuthContext } from "../../components/Auth/AuthContext"
 
 
-
-
 const Project = () => {
   const [repoData, setrepoData] = useState({})
   const [loading, setLoading] = useState(true)
@@ -21,8 +19,8 @@ const Project = () => {
 
   useEffect(() => {
     async function parseRepo() {
-      // const url = `http://localhost:3000/api/repos?name=${name}`
-      const url = `https://darrenmedrano.vercel.app/api/repos?name=${name}`
+      const url = `http://localhost:3000/api/repos?name=${name}`
+      // const url = `https://darrenmedrano.vercel.app/api/repos?name=${name}`
       const res = await fetch(url)
       const data = await res.json()
 

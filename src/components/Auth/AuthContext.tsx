@@ -3,11 +3,15 @@ import React, { createContext, useState, useEffect } from 'react'
 
 export const AuthContext = createContext({
   loggedIn: false,
-  setLoggedIn: () => {}
-})
+  handleLogin: (token: string) => {},
+  handleLogout: () => {},
+});
 
+interface AuthProviderProps{
+  children: React.ReactNode,
+}
   
-export const AuthProvider = ({ children }) => {
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
@@ -18,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const handleLogin = (token) => {
+  const handleLogin = (token: string) => {
     localStorage.setItem('token', token);
     setLoggedIn(true);
   };

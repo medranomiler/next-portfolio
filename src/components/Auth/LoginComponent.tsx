@@ -13,7 +13,7 @@ const LoginComponent = () => {
     const router = useRouter()
 
 
-    const handleFormSubmit = async (event) => {
+    const handleFormSubmit = async (event: { preventDefault: () => void; }) => {
       event.preventDefault();
       const response = await fetch('/api/signin', {
         method: 'POST',

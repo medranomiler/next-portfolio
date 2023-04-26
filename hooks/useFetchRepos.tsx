@@ -9,13 +9,13 @@ function useFetchRepos(){
 
     useEffect(() => {
         async function fetchReposFromDb(){
-          // const url = `http://localhost:3000/api/repos`
-        const url = "https://darrenmedrano.vercel.app/api/repos"
+          const url = `http://localhost:3000/api/repos`
+        // const url = "https://darrenmedrano.vercel.app/api/repos"
         const res = await fetch(url)
         const data = await res.json()
 
 
-        const repositoryData = data.map(item => ({
+        const repositoryData = data.map((item: { deployedUrl: string; description: string; html_url: string; image: string; name: string; topics: [string] }) => ({
           deployedUrl: item.deployedUrl,
           description: item.description,
           html_url: item.html_url,
