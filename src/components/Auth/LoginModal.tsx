@@ -1,13 +1,13 @@
 import { Fragment, useEffect } from "react"
 import { Dialog, Transition } from '@headlessui/react'
+import LoginComponent from "./LoginComponent"
 
 type RepoModalProps = {
-  message: string;
   isVisible: boolean;
   onClose: () => void;
 }
 
-const RepoModal = ({ isVisible, onClose, message }: RepoModalProps) => {
+const RepoModal = ({ isVisible, onClose }: RepoModalProps) => {
   useEffect(() => {
     if (isVisible) {
       document.body.style.overflow = 'hidden';
@@ -58,27 +58,14 @@ const RepoModal = ({ isVisible, onClose, message }: RepoModalProps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all bg-red-600">
+                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all bg-slate-100 dark:bg-gray-900">
                   <Dialog.Title
                     as="h3"
                     className="text-lg text-white font-bold leading-6"
                   >
-                    Error Alert! 
                   </Dialog.Title>
                   <div className="mt-2">
-                    <p className="text-sm text-white">
-                      {message}
-                    </p>
-                  </div>
-
-                  <div className="mt-4">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-white px-4 py-2 text-sm font-medium text-white"
-                      onClick={onClose}
-                    >
-                      Close
-                    </button>
+                  <LoginComponent />
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
