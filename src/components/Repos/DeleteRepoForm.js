@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactEventHandler, useState } from 'react'
 import useFetchRepos from "../../../hooks/useFetchRepos"
 import { BsTrash3Fill } from "react-icons/bs"
 

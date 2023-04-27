@@ -5,15 +5,23 @@ import Link from "next/link"
 import ColorModeContext from '../../hooks/useColorMode'
 import { AuthContext } from './Auth/AuthContext'
 
+
+
 export default function Navbar() {
   const { colorMode, setColorMode } = useContext(ColorModeContext);
   const { loggedIn, handleLogout } = useContext(AuthContext);
-
-  const [navigation, setNavigation] = useState([
+  const [navigation, setNavigation] = useState<NavigationItem[]>([
     { name: 'Home', href: '/', current: false },
     { name: 'Contact', href: '/contact', current: false }, 
     { name: 'Login', href: '/login', current: false},
   ]);
+
+  interface NavigationItem {
+    name: string;
+    href: string;
+    current: boolean;
+    onClick?: () => void;
+  }
 
   useEffect(() => {
     if (loggedIn) {
@@ -32,7 +40,7 @@ export default function Navbar() {
     }
   }, [loggedIn]);
 
-  function classNames(...classes) {
+  function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
   }
 

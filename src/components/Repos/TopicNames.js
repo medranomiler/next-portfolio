@@ -1,7 +1,9 @@
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
+
+
 
 const Topics = ({topic}) => {
-    const [topicNames, setTopicNames] = useState(null)
+    const [topicNames, setTopicNames] = useState()
 
     useEffect(() => {
         if (topic === "chakra-ui") {
