@@ -24,10 +24,10 @@ const LoginComponent = () => {
       });
   
       if (response.ok) {
-        const { token } = await response.json();
+        const { token, adminId } = await response.json();
   
         // Call handleLogin with token from response
-        handleLogin(token);
+        handleLogin(token, adminId);
         router.pathname === "/login" && Router.push("/")
       } else {
         const { message } = await response.json();

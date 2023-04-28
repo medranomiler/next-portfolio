@@ -26,8 +26,9 @@ async function signin(req: NextApiRequest, res: NextApiResponse) {
     const token = jwt.sign({ username: admin.username }, process.env.JWT_SECRET, {
       expiresIn: '1h',
     });
-
-    res.status(200).json({ token });
+    const adminId = admin.id
+    console.log(adminId)
+    res.status(200).json({ token, adminId });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });

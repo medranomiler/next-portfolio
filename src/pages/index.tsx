@@ -2,9 +2,12 @@ import ProfileCard from "../components/ProfileCard";
 import Personals from "../components/Repos/Personals";
 import Collabs from "../components/Repos/Collabs"
 import dynamic from "next/dynamic"
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
+import  Router   from "next/router"
 import { Tab } from "@headlessui/react"
 import { Prompt } from "next/font/google"
+import { AuthContext } from "@/components/Auth/AuthContext";
+import LoginWall from "@/components/Auth/LoginWall";
 
 const prompt = Prompt({
   weight: ['400' , '700'],
@@ -12,7 +15,7 @@ const prompt = Prompt({
 })
 
 const Portfolio = () => {
-
+  const { loggedIn } = useContext(AuthContext)
   const personals = useMemo(() => {
     return <Personals />;
   }, []);
@@ -26,6 +29,9 @@ const Portfolio = () => {
   }
 
   const categories = ["Personal", "Collaborations"]
+  
+
+  !loggedIn && Router.push("/login")
 
   return (
     <>

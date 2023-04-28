@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import connectMongo from '../../lib/connectMongo';
 import Repo from "../../models/Repos"
+import Admin from "../../models/Admins"
 
 export default async function repoHandler(
   req: NextApiRequest,
@@ -86,21 +87,43 @@ async function addRepo(
     req: NextApiRequest,
     res: NextApiResponse | { error: string }
   ) {
+
     try {
+      
       await connectMongo();
-  
+
+      const admin = await Admin.findById(req.query.adminId).populate('repos')
       const repo = await Repo.findOne({ name: req.query.name });
-  
+      
+      if (!admin) {
+        return (res as NextApiResponse).status(404).json({ error: `Admin with ID ${req.query.adminId} not found` });
+      }
+
+      
+      const adminRepos = admin.repos;
+
+if (!adminRepos || adminRepos.length === 0) {
+  return (res as NextApiResponse).status(404).json({ error: `Admin with ID ${req.query.adminId} is not associated with any repositories` });
+}
+
+const adminRepo = adminRepos.find((r: { name: string | string[] | undefined; }) => r.name === req.query.name);
+
+if (!adminRepo) {
+  return (res as NextApiResponse).status(404).json({ error: `Admin with ID ${req.query.adminId} is not associated with a repository named ${req.query.name}` });
+}
+
+      
       if (!repo) {
         return (res as NextApiResponse).status(404).json({ error: `Project named ${req.query.name} not found` });
       }
   
-      (res as NextApiResponse).status(200).json(repo);
+      (res as NextApiResponse).status(200).json(adminRepo);
     } catch (error) {
       (res as NextApiResponse).status(500).json({ error: (error as Error).message });
     }
   }
 
+  
   async function deleteRepo(
     req: NextApiRequest,
     res: NextApiResponse | { error: string } | { message: string }

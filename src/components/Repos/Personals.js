@@ -4,7 +4,7 @@ import useFetchRepos from "../../../hooks/useFetchRepos";
 const Personals = () => {
 
   const [repoData, loading] = useFetchRepos()
-  const personalRepos = repoData.filter(repo => !["devstr", "jate", "space-defence"].includes(repo.name))
+  const personalRepos = repoData.length > 1 && repoData.filter(repo => !["devstr", "jate", "space-defence"].includes(repo.name))
 
 
   return (
@@ -26,7 +26,7 @@ const Personals = () => {
         </>
       ) : (
         <>
-          {(personalRepos.map((repo) => (
+          {personalRepos.length > 1 && (personalRepos.map((repo) => (
             <RepoCard key={repo.name} repo={repo} />
           )))}
         </>

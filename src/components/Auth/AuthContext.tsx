@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from 'react'
 
 export const AuthContext = createContext({
   loggedIn: false,
-  handleLogin: (token: string) => {},
+  handleLogin: (token: string, adminId: string) => {},
   handleLogout: () => {},
 });
 
@@ -22,13 +22,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   }, []);
 
-  const handleLogin = (token: string) => {
+  const handleLogin = (token: string, adminId: string) => {
     localStorage.setItem('token', token);
+    localStorage.setItem('adminId', adminId);
     setLoggedIn(true);
   };
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('adminId');
     setLoggedIn(false);
   };
 

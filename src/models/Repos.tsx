@@ -6,7 +6,8 @@ const RepoSchema = new Schema({
     topics: { type: [String], required: false },
     html_url: { type: String, required: false },
     image: { type: String, required: false },
-    deployedUrl: { type: String, required: false }
+    deployedUrl: { type: String, required: false },
+    admin: { type: Schema.Types.ObjectId, ref: "Admin" }
   });
 
 RepoSchema.set("toJSON", { getters: true });
