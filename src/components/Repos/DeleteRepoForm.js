@@ -9,9 +9,10 @@ const DeleteRepoForm = () => {
     const deleteRepo = async (e) => {
       e.preventDefault();
       if(confirm(`Are you sure you want to delete ${selectedRepo} ?`)){
-      const response = await fetch('/api/repos', {
+        const adminId = localStorage.getItem("adminId")
+      const response = await fetch('/api/admin', {
         method: 'DELETE',
-        body: JSON.stringify({ name: selectedRepo }),
+        body: JSON.stringify({ name: selectedRepo, adminId }),
         headers: {
           'Content-Type': 'application/json'
         }

@@ -4,7 +4,7 @@ import useFetchRepos from "../../../hooks/useFetchRepos";
 const Personals = () => {
 
   const [repoData, loading] = useFetchRepos()
-  const personalRepos = repoData.length > 1 && repoData.filter(repo => !["devstr", "jate", "space-defence"].includes(repo.name))
+  const personalRepos = repoData.length > 0 && repoData.filter(repo => ["personal"].includes(repo.category))
 
 
   return (

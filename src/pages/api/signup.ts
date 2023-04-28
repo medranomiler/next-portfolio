@@ -5,12 +5,12 @@ import connectMongo from '../../lib/connectMongo';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 async function signup(req: NextApiRequest, res: NextApiResponse) {
-  const { username, password } = req.body;
+  const { username, password, bio, profilePhoto } = req.body;
   
   try {
     console.log(username, password)
     const hashedPassword = await hash(password, 10);
-    const newUser = await createAdmin(username, hashedPassword);
+    const newUser = await createAdmin(username, hashedPassword, bio, profilePhoto);
 
     if (!process.env.JWT_SECRET) {
       throw new Error('JWT secret is not defined');
@@ -28,14 +28,16 @@ async function signup(req: NextApiRequest, res: NextApiResponse) {
     .json({ message: 'Server error' });
   }
 
-  async function createAdmin(username: string, password: string) {
+  async function createAdmin(username: string, password: string, bio: string, profilePhoto: string) {
     try {
 
       await connectMongo()
 
       const newAdmin = new Admin({
         username,
-        password
+        password,
+        bio,
+        profilePhoto
       });
       const savedAdmin = await newAdmin.save();
       return savedAdmin;

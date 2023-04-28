@@ -35,11 +35,12 @@ const RepoForm = () =>{
     const handleCreate = async (e) => {
         e.preventDefault();
         setLoading(true)
+        const adminId = localStorage.getItem("adminId")
         const selectedTopics = topics.filter((topic) => topicsArray.includes(topic));
-        const response = await fetch('/api/repos', {
+        const response = await fetch('/api/admin', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, description, topics: selectedTopics , html_url, image, deployedUrl }),
+          body: JSON.stringify({ name, description, topics: selectedTopics , html_url, image, deployedUrl, adminId }),
         });
         const { error } = await response.json()
         
@@ -56,11 +57,13 @@ const RepoForm = () =>{
       const handleUpdate = async (e) =>{
         e.preventDefault()
         setLoading(true)
+        const adminId = localStorage.getItem("adminId")
         const selectedTopics = topics.filter((topic) => topicsArray.includes(topic))
         const repoToUpdate = repoData.find((repo) => repo.name === selectedRepo)
         const updatedFields = {}
 
           updatedFields.name = selectedRepo
+          updatedFields.adminId = adminId
         
         if (description !== repoToUpdate.description && description !== "") {
           updatedFields.description = description
@@ -87,8 +90,9 @@ const RepoForm = () =>{
           setErrorMessage("You must make at least one change before updating the project.")
           return
         }
+
       
-        const response = await fetch(`/api/repos/`, {
+        const response = await fetch(`/api/admin`, {
           method: "PUT",
           headers: { "Content-Type" : "application/json" },
           body: JSON.stringify(updatedFields),

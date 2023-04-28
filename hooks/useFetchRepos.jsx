@@ -12,9 +12,8 @@ function useFetchRepos(){
     useEffect(() => {
         async function fetchReposFromDb(){
           const adminId = localStorage.getItem('adminId')
-          // const url = `http://localhost:3000/api/admin?adminId=${adminId}`
-        const url = `https://darrenmedrano.vercel.app/api/admin?adminId=${adminId}`
-        const res = await fetch(url, {
+        // const url = `https://darrenmedrano.vercel.app/api/admin?adminId=${adminId}`
+        const res = await fetch(`/api/admin?adminId=${adminId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -25,13 +24,14 @@ function useFetchRepos(){
          
 
 
-        const repositoryData = data.length > 1 && data.map(item => ({
+        const repositoryData = data.length > 0 && data.map(item => ({
           deployedUrl: item.deployedUrl,
           description: item.description,
           html_url: item.html_url,
           image: item.image,
           name: item.name,
-          topics: item.topics
+          topics: item.topics,
+          category: item.category
         }))
         setLoading(false)
         setrepoData(repositoryData)

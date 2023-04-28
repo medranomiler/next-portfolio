@@ -5,7 +5,7 @@ import useFetchRepos from "../../../hooks/useFetchRepos";
 const Collabs = () => {
 
     const [repoData, loading] = useFetchRepos()
-    const collabs = repoData.length > 1 &&  repoData.filter(repo => ["devstr", "jate", "space-defence"].includes(repo.name))
+    const collabs = repoData.length > 0 &&  repoData.filter(repo => ["collaboration"].includes(repo.category))
 
     return (
         <>

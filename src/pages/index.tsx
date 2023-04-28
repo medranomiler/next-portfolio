@@ -7,7 +7,7 @@ import  Router   from "next/router"
 import { Tab } from "@headlessui/react"
 import { Prompt } from "next/font/google"
 import { AuthContext } from "@/components/Auth/AuthContext";
-import LoginWall from "@/components/Auth/LoginWall";
+import LoginComponent from "@/components/Auth/LoginComponent";
 
 const prompt = Prompt({
   weight: ['400' , '700'],
@@ -16,6 +16,7 @@ const prompt = Prompt({
 
 const Portfolio = () => {
   const { loggedIn } = useContext(AuthContext)
+  
   const personals = useMemo(() => {
     return <Personals />;
   }, []);
@@ -31,11 +32,13 @@ const Portfolio = () => {
   const categories = ["Personal", "Collaborations"]
   
 
-  !loggedIn && Router.push("/login")
+  
 
   return (
     <>
       <div className="min-h-screen md:p-6 p-0 bg-slate-50 dark:bg-gray-950">
+        {loggedIn?( 
+        <>
         <div className="flex justify-center h-1/3 flex-wrap">
           <ProfileCard />
         </div>
@@ -72,6 +75,13 @@ const Portfolio = () => {
           </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
+    </>):(
+      <>
+      <div className="flex flex-col items-center">
+    <LoginComponent/>
+    </div>
+    </>
+    )}
       </div>
     </>
   );

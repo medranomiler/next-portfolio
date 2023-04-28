@@ -7,6 +7,7 @@ const RepoSchema = new Schema({
     html_url: { type: String, required: false },
     image: { type: String, required: false },
     deployedUrl: { type: String, required: false },
+    category:{ type: String, enum: ["personal", "collaboration"], default: "personal"},
     admin: { type: Schema.Types.ObjectId, ref: "Admin" }
   });
 

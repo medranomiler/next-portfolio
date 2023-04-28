@@ -7,6 +7,7 @@ import TopicIcons from "../../components/Repos/TopicIcons"
 import TopicNames from "../../components/Repos/TopicNames"
 import { FaLink } from "react-icons/fa";
 import { AuthContext } from "../../components/Auth/AuthContext"
+import LoginComponent from '@/components/Auth/LoginComponent'
 
 
 const Project = () => {
@@ -20,9 +21,8 @@ const Project = () => {
   useEffect(() => {
     async function parseRepo() {
       const adminId = localStorage.getItem('adminId')
-      // const url = `http://localhost:3000/api/repos?name=${name}&adminId=${adminId}`
-      const url = `https://darrenmedrano.vercel.app/api/repos?name=${name}&adminId=${adminId}`
-      const res = await fetch(url, {
+      // const url = `https://darrenmedrano.vercel.app/api/repos?name=${name}&adminId=${adminId}`
+      const res = await fetch(`/api/repos?name=${name}&adminId=${adminId}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -49,10 +49,11 @@ const Project = () => {
     <>
       <Head>
         <title>{repoData.name}</title>
-      </Head>
+      </Head>{loggedIn? (<>
       {loading && (<div className="h-screen flex justify-center items-center bg-black">
         <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif" />
       </div>)}
+      
       {!loading && Object.keys(repoData).length > 0 && (
         <main className="min-h-screen md:p-6 p-4 bg-slate-50 dark:bg-gray-950">
           <div className="flex flex-col items-center">
@@ -88,18 +89,24 @@ const Project = () => {
                   <h2 className="text-4xl font-bold mb-2">Repository URL</h2>
                   {repoData.html_url && (<Link href={repoData.html_url} className="mx-4 flex cursor-pointer"><FaLink /><p className="text-md font-light ml-2 text-indigo-500">{repoData.html_url}</p></Link>)}
                 </div>
-                {loggedIn && (<>
+                
                 <div className="my-4 rounded-xl border shadow border-gray-200 dark:bg-gray-900 dark:border-gray-700 p-4">
                   <h2 className="text-4xl font-bold mb-2">Actions</h2>
                   <div className="flex justify-center space-x-4">
                   <button className="cursor-pointer p-2 bg-yellow-400 rounded text-white"><Link href="/projects/update">Update</Link></button>
                   <button className="cursor-pointer p-2 bg-red-600 rounded text-white"><Link href="/projects/delete">Delete</Link></button>
                   </div>
-                </div> </>)}
+                </div> 
               </div>
             </div>
           </div>
-        </main>)}
+        </main>)}</>): (
+                        <>
+                        <div className="h-screen p-4 flex flex-col items-center">
+                      <LoginComponent/>
+                      </div>
+                      </>
+                )}
     </>
   )
 }
