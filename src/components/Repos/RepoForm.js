@@ -16,6 +16,8 @@ const RepoForm = () =>{
     const [loading, setLoading] = useState(false)
     const [errorMessage, setErrorMessage] = useState('');
     const [selectedRepo, setSelectedRepo] = useState('')
+    const [collaboration, setCollaboration] = useState(false)
+    const [category, setCategory] = useState("personal")
     const [ repoData ] = useFetchRepos()
     const router = useRouter()
 
@@ -35,12 +37,15 @@ const RepoForm = () =>{
     const handleCreate = async (e) => {
         e.preventDefault();
         setLoading(true)
+        
         const adminId = localStorage.getItem("adminId")
+        const categoryValue = collaboration ? "collaboration" : "personal";
+        setCategory(categoryValue);
         const selectedTopics = topics.filter((topic) => topicsArray.includes(topic));
         const response = await fetch('/api/admin', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, description, topics: selectedTopics , html_url, image, deployedUrl, adminId }),
+          body: JSON.stringify({ name, description, topics: selectedTopics , html_url, image, deployedUrl, adminId, category: categoryValue }),
         });
         const { error } = await response.json()
         
@@ -58,6 +63,8 @@ const RepoForm = () =>{
         e.preventDefault()
         setLoading(true)
         const adminId = localStorage.getItem("adminId")
+        const categoryValue = collaboration ? "collaboration" : "personal";
+        setCategory(categoryValue);
         const selectedTopics = topics.filter((topic) => topicsArray.includes(topic))
         const repoToUpdate = repoData.find((repo) => repo.name === selectedRepo)
         const updatedFields = {}
@@ -67,6 +74,9 @@ const RepoForm = () =>{
         
         if (description !== repoToUpdate.description && description !== "") {
           updatedFields.description = description
+        }
+        if (categoryValue !== repoToUpdate.category && categoryValue !== "") {
+          updatedFields.category = categoryValue
         }
       
         if (selectedTopics !== repoToUpdate.topics && selectedTopics.length > 0) {
@@ -146,6 +156,21 @@ return(<>
         ))}
         </div>
         </div>
+
+        <div className="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-violet-500 focus:border-violet-500 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500">
+            <label className="text-gray-500">Collaboration? Check the box if this was a collaboration. Leave unchecked if it was a personal project.</label>
+            <div className="w-full flex flex-wrap">
+          <div className="p-2">
+            <input
+              type="checkbox"
+              value={collaboration}
+              onChange={(e)=> setCollaboration(true)}
+              className="mr-2 w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            />
+          </div>
+        </div>
+        </div>
+
             <input type="text" 
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-violet-500 focus:border-violet-500 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500" placeholder="repo url"
             value={html_url}
@@ -206,6 +231,21 @@ return(<>
         ))}
         </div>
         </div>
+
+        <div className="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-violet-500 focus:border-violet-500 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500">
+            <label className="text-gray-500">Collaboration? Check the box if this was a collaboration. Leave unchecked if it was a personal project.</label>
+            <div className="w-full flex flex-wrap">
+          <div className="p-2">
+            <input
+              type="checkbox"
+              value={collaboration}
+              onChange={(e)=> setCollaboration(true)}
+              className="mr-2 w-4 h-4 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            />
+          </div>
+        </div>
+        </div>
+
             <input type="text" 
             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-violet-500 focus:border-violet-500 mb-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-violet-500 dark:focus:border-violet-500" placeholder="repo url"
             value={html_url}
