@@ -12,8 +12,8 @@ function useFetchRepos(){
     useEffect(() => {
         async function fetchReposFromDb(){
           const adminId = localStorage.getItem('adminId')
-          const url = `http://localhost:3000/api/admin?adminId=${adminId}`
-        // const url = "https://darrenmedrano.vercel.app/api/repos"
+          // const url = `http://localhost:3000/api/admin?adminId=${adminId}`
+        const url = `https://darrenmedrano.vercel.app/api/admin?adminId=${adminId}`
         const res = await fetch(url, {
           method: 'GET',
           headers: {

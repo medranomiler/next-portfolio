@@ -20,8 +20,8 @@ const Project = () => {
   useEffect(() => {
     async function parseRepo() {
       const adminId = localStorage.getItem('adminId')
-      const url = `http://localhost:3000/api/repos?name=${name}&adminId=${adminId}`
-      // const url = `https://darrenmedrano.vercel.app/api/repos?name=${name}`
+      // const url = `http://localhost:3000/api/repos?name=${name}&adminId=${adminId}`
+      const url = `https://darrenmedrano.vercel.app/api/repos?name=${name}&adminId=${adminId}`
       const res = await fetch(url, {
         method: 'GET',
         headers: {
