@@ -36,6 +36,7 @@ export default function Navbar() {
         { name: 'Home', href: '/', current: false },
         { name: 'Contact', href: '/contact', current: false }, 
         { name: 'Login', href: '/login', current: false},
+        { name: 'Sign Up', href: '/sign up', current: false},
       ]);
     }
   }, [loggedIn]);
