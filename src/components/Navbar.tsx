@@ -29,6 +29,7 @@ export default function Navbar() {
         { name: 'Home', href: '/', current: false },
         { name: 'Contact', href: '/contact', current: false }, 
         { name: 'Manage Projects', href: '/projects', current: false },
+        { name: 'Manage Profile', href: '/profile', current: false },
         { name: 'Logout', href: '', current: false, onClick: handleLogout },
       ]);
     } else {
