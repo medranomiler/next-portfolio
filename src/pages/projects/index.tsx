@@ -8,7 +8,7 @@ const ManageRepos = () => {
   const { loggedIn } = useContext(AuthContext);
 
   return (
-    <div className="max-w-screen h-screen py-12 px-4 space-y-4 relative flex flex-col items-center bg-slate-50 dark:bg-gray-950">
+    <div className="max-w-screen min-h-screen py-12 px-4 space-y-4 relative flex flex-col items-center bg-slate-50 dark:bg-gray-950">
       {loggedIn? (
         <>
         <Link href="/projects/new" className="w-full max-w-[600px] text-center text-4xl p-4 rounded-lg border border-slate-100 hover:bg-slate-100 shadow font-bold dark:text-gray-400 dark:bg-gray-900 dark:border-gray-700 dark:hover:bg-slate-100"><h1>Create A Project</h1></Link>

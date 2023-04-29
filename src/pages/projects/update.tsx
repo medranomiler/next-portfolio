@@ -8,7 +8,7 @@ const NewRepo = () => {
     const { loggedIn } = useContext(AuthContext);
 
   return (
-    <div className="max-w-screen h-screen py-12 p-4 relative flex flex-col items-center bg-slate-50 dark:bg-gray-950">
+    <div className="max-w-screen min-h-screen py-12 p-4 relative flex flex-col items-center bg-slate-50 dark:bg-gray-950">
       {loggedIn? (
         <RepoForm />
       ) : (

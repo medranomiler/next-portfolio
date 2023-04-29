@@ -11,22 +11,22 @@ const Personals = () => {
     <>
       {loading ? (
         <>
-          <div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200 dark:bg-gray-900">
+          <div role="status" className="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200 dark:bg-gray-900">
             <span class="sr-only">Loading...</span>
           </div>
-          <div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200 dark:bg-gray-900">
+          <div role="status" className="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200 dark:bg-gray-900">
             <span class="sr-only">Loading...</span>
           </div>
-          <div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200 dark:bg-gray-900">
+          <div role="status" className="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200 dark:bg-gray-900">
             <span class="sr-only">Loading...</span>
           </div>
-          <div role="status" class="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200 dark:bg-gray-900">
+          <div role="status" className="w-80 h-96 m-8 p-4 flex-shrink-0 border border-gray-200 rounded-lg shadow animate-pulse md:p-6 dark:border-gray-700 bg-gray-200 dark:bg-gray-900">
             <span class="sr-only">Loading...</span>
           </div>
         </>
       ) : (
         <>
-          {personalRepos.length > 1 && (personalRepos.map((repo) => (
+          {personalRepos.length > 0 && (personalRepos.map((repo) => (
             <RepoCard key={repo.name} repo={repo} />
           )))}
         </>
