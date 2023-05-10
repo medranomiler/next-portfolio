@@ -116,7 +116,7 @@ const Topics = ({topic}) => {
             setTopicNames(<li key={topic} className="font-light">Bitcoin</li>)
       
         }
-        else if (topic === "lightning") {
+        else if (topic === "lightningnetwork") {
 
             setTopicNames(<li key={topic} className="font-light">Lightning Network</li>)
       

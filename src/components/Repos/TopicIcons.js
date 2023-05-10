@@ -95,7 +95,7 @@ const TopicIcons = ({topic}) => {
       else if (topic === "bitcoin") {
             setTopicIcons(<FaBitcoin key={topic} className="mx-3 h-10 w-10"/>)
       }
-      else if (topic === "lightning") {
+      else if (topic === "lightningnetwork") {
             setTopicIcons(<BsLightningChargeFill key={topic} className="mx-3 h-10 w-10"/>)
       }
       else if (topic === "reactnative") {
