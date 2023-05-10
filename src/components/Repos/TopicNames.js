@@ -106,6 +106,26 @@ const Topics = ({topic}) => {
             setTopicNames(<li key={topic} className="font-light">Google Domains</li>)
       
         }
+        else if (topic === "expo") {
+
+            setTopicNames(<li key={topic} className="font-light">Expo</li>)
+      
+        }
+        else if (topic === "bitcoin") {
+
+            setTopicNames(<li key={topic} className="font-light">Bitcoin</li>)
+      
+        }
+        else if (topic === "lightning") {
+
+            setTopicNames(<li key={topic} className="font-light">Lightning Network</li>)
+      
+        }
+        else if (topic === "reactnative") {
+
+            setTopicNames(<li key={topic} className="font-light">React Native</li>)
+      
+        }
         }, [topic])
 
 return(

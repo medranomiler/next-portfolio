@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react'
-import { FaReact, FaBootstrap, FaNode, FaCcStripe } from "react-icons/fa";
-import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql, SiGodaddy, SiAdobeillustrator, SiGoogledomains } from "react-icons/si";
+import { FaReact, FaBootstrap, FaNode, FaCcStripe, FaBitcoin } from "react-icons/fa";
+import { SiMongodb, SiMysql, SiExpress, SiVercel, SiTailwindcss, SiOpenai, SiChakraui, SiJavascript, SiNextdotjs, SiGithub, SiHeroku, SiTypescript, SiGraphql, SiGodaddy, SiAdobeillustrator, SiGoogledomains, SiExpo } from "react-icons/si";
+import { BsLightningChargeFill } from "react-icons/bs"
 
 const TopicIcons = ({topic}) => {
     const [topicIcon, setTopicIcons] = useState(null)
@@ -87,6 +88,18 @@ const TopicIcons = ({topic}) => {
       }
       else if (topic === "googledomains") {
             setTopicIcons(<SiGoogledomains key={topic} className="mx-3 h-10 w-10"/>)
+      }
+      else if (topic === "expo") {
+            setTopicIcons(<SiExpo key={topic} className="mx-3 h-10 w-10"/>)
+      }
+      else if (topic === "bitcoin") {
+            setTopicIcons(<FaBitcoin key={topic} className="mx-3 h-10 w-10"/>)
+      }
+      else if (topic === "lightning") {
+            setTopicIcons(<BsLightningChargeFill key={topic} className="mx-3 h-10 w-10"/>)
+      }
+      else if (topic === "reactnative") {
+            setTopicIcons(<FaReact key={topic} className="mx-3 h-10 w-10"/>)
       }
     }, [topic])
 
