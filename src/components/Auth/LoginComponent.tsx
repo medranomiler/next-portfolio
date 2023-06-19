@@ -52,6 +52,11 @@ const LoginComponent = () => {
    </button>
 
         </form>
+        Login using these credentials
+    <br/>
+    username: Darren Medrano
+    <br/>
+    password: password12345
        </>)}
        </>)
 }
