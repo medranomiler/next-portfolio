@@ -3,7 +3,7 @@ import Image from "next/image"
 import useFetchProfile from "../../hooks/useFetchProfile"
 import { useState } from "react"
 import { Lato } from "next/font/google"
-import myPhoto from "../assets/tracedPortrait2.svg"
+import myPhoto from "../assets/tracedPortrait.svg"
 
 const lato = Lato({
   weight: ['400' , '700'],
